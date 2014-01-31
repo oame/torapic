@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- for Devise -->
+<% if notice || alert %>
+  <div class="flash-message <%= notice ? "notice" : ""%><%= alert ? "error" : ""%>">
+    <% if notice %>
+      <p><%= notice %>
+    <% elsif alert %>
+      <p><%= alert %>
+    <% end %>
+    <a class="flash-close" href="#">×</a></p>
+  </div>
+<% end %>
 
 <%= yield %>
+
+<!-- Scripts -->
 
 </body>
 </html>
