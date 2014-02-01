@@ -10,6 +10,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'compass-rails'
+#gem 'caesar-easing'
 
 # Project oriented gems
 gem 'paranoia'
