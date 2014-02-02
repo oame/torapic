@@ -13,9 +13,10 @@
  */
 
  @import "compass/reset";
+ @import "modules/mixins";
 
 .layout-top {
   width: 100%;
   height: 100%;
-  background: #000;
+  @include retina(torapic_landscape_daylight);
 }
