@@ -35,10 +35,11 @@ gem 'kaminari'
 #gem 'rack-pjax'
 
 # Internationalization
+gem 'rails-i18n'
 gem 'i18n_generators'
 
 # Admin
-gem 'rails_admin'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :production do
   # Database
