@@ -13,9 +13,13 @@
  */
 
  @import "compass/reset";
+ @import "modules/clearfix";
+ @import "modules/mixins";
 
 .layout-top {
   width: 100%;
   height: 100%;
-  background: #000;
+  position: absolute;
+  background: url(asset-path("torapic_landscape_daylight.png"));
+  @include background-size(cover);
 }

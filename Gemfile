@@ -4,34 +4,59 @@ ruby '2.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder'
+
+# Global settings
+gem 'settingslogic'
+
+# Assets libralies
+gem 'uglifier'
+gem 'sass-rails'
+gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
+gem 'jquery-ui-rails'
 gem 'compass-rails'
-#gem 'caesar-easing'
+gem 'ceaser-easing'
+#gem 'font-awesome-rails'
 
-# Project oriented gems
+# Auth
+gem 'devise'
+gem 'cancan'
+gem 'squeel'
+
+# Model improvements
 gem 'paranoia'
+gem 'paperclip'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
+# View improvements
+gem 'gravatar_image_tag'
+gem 'kaminari'
+#gem 'rack-pjax'
+
+# Internationalization
+gem 'rails-i18n'
+gem 'i18n_generators'
+
+# Admin
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :production do
+  # Database
   gem 'mysql2'
+
   gem 'unicorn'
   gem 'therubyracer', platforms: :ruby
 end
 
 group :development, :test do
+  # Database
   gem 'sqlite3'
+
   gem 'quiet_assets'
-  gem 'meta_request'
   gem 'letter_opener'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 
   # Test
   gem 'rspec-rails'

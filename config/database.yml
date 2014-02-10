@@ -15,13 +15,9 @@ development:
   database: db/torapic_development.sqlite3
 
 test:
-  adapter: mysql2
+  adapter: sqlite3
   encoding: utf8
-  database: torapic_test
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  database: db/torapic_test.sqlite3
 
 production:
   adapter: mysql2
