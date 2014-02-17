@@ -13,10 +13,5 @@ Torapic::Application.routes.draw do
     end
   end
 
-  # Root
-  authenticated :user do
-    root :to => redirect("/dashboard")
-  end
-
   root 'static_pages#index'
 end
