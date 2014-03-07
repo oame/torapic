@@ -18,13 +18,12 @@
 
 ## Project
 coverage
-rdoc
 pkg
 tmp
 capybara*.html
-.rvmrc
 .yardoc
 doc
+rdoc
 
 ## OS X
 .DS_Store
