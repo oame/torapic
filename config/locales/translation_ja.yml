@@ -1,0 +1,54 @@
+ja:
+  activerecord:
+    models:
+      active_admin/comment: active_admin/comment  #g
+      admin_user: 管理者
+      photo: フォト
+      user: ユーザー
+
+    attributes:
+      active_admin/comment:
+        author: :activerecord.models.author
+        author_type: author_type  #g
+        body: body  #g
+        namespace: namespace  #g
+        resource: :activerecord.models.resource  #g
+        resource_type: resource_type  #g
+
+      admin_user:
+        current_sign_in_at: current_sign_in_at  #g
+        current_sign_in_ip: current_sign_in_ip  #g
+        email: email  #g
+        encrypted_password: encrypted_password  #g
+        last_sign_in_at: last_sign_in_at  #g
+        last_sign_in_ip: last_sign_in_ip  #g
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+
+      photo:
+        deleted_at: deleted_at  #g
+        expired_at: 有効期限
+        image_content_type: image_content_type  #g
+        image_file_name: image_file_name  #g
+        image_file_size: image_file_size  #g
+        image_updated_at: image_updated_at  #g
+        user: :activerecord.models.user
+
+      user:
+        current_sign_in_at: current_sign_in_at  #g
+        current_sign_in_ip: current_sign_in_ip  #g
+        deleted_at: deleted_at  #g
+        email: メールアドレス
+        encrypted_password: パスワード
+        password: パスワード
+        password_confirmation: パスワードの確認
+        photos: フォト
+        last_sign_in_at: last_sign_in_at  #g
+        last_sign_in_ip: last_sign_in_ip  #g
+        name: スクリーンネーム
+        provider: 認証元
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+        uid: ユーザーID

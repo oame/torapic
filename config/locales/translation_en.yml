@@ -1,0 +1,52 @@
+en:
+  activerecord:
+    models:
+      active_admin/comment: active_admin/comment  #g
+      admin_user: Admin user
+      photo: Photo
+      user: User
+
+    attributes:
+      active_admin/comment:
+        author: :activerecord.models.author
+        author_type: Author type
+        body: Body
+        namespace: Namespace
+        resource: :activerecord.models.resource
+        resource_type: Resource type
+
+      admin_user:
+        current_sign_in_at: current_sign_in_at  #g
+        current_sign_in_ip: current_sign_in_ip  #g
+        email: email  #g
+        encrypted_password: encrypted_password  #g
+        last_sign_in_at: last_sign_in_at  #g
+        last_sign_in_ip: last_sign_in_ip  #g
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+
+      photo:
+        deleted_at: Deleted at
+        expired_at: Expired at
+        image_content_type: Image content type
+        image_file_name: Image file name
+        image_file_size: Image file size
+        image_updated_at: Image updated at
+        user: :activerecord.models.user
+
+      user:
+        current_sign_in_at: Current sign in at
+        current_sign_in_ip: Current sign in ip
+        deleted_at: Deleted at
+        email: Email
+        encrypted_password: Encrypted password
+        photos: Photos
+        last_sign_in_at: Last sign in at
+        last_sign_in_ip: Last sign in ip
+        name: Name
+        provider: Provider
+        remember_created_at: Remember created at
+        reset_password_sent_at: Reset password sent at
+        reset_password_token: Reset password token
+        uid: Uid
