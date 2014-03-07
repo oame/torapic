@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(version: 20140307040016) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "photos", force: true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.integer  "user_id"
     t.datetime "expired_at"
     t.datetime "deleted_at"

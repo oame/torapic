@@ -17,7 +17,7 @@ class Photo < ActiveRecord::Base
 
   # Paperclip
   has_attached_file :image, styles: { medium: "300x300>", thumb: "150x150#" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   def expired?
     expired_at < Time.now
