@@ -13,9 +13,12 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  uid                    :string(255)      default(""), not null
+#  provider               :string(255)      default(""), not null
+#  name                   :string(255)
+#  deleted_at             :datetime
 #  created_at             :datetime
 #  updated_at             :datetime
-#  deleted_at             :datetime
 #
 
 require 'spec_helper'

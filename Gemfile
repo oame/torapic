@@ -7,13 +7,14 @@ gem 'rails', '4.0.3'
 # Database
 gem 'mysql2'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder'
-#gem 'rabl'
+# Build JSON
+gem 'oj'
+#gem 'jbuilder'
+gem 'rabl'
 
 # Global settings
 gem 'settingslogic'
-
+# rand
 # Assets libralies
 gem 'uglifier'
 gem 'sass-rails'
@@ -74,9 +75,15 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'faker-japanese'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'simplecov'
+  gem 'accept_values_for'
+
+  # Auto-generate API documents
+  gem 'grape-swagger'
+  gem 'grape-swagger-ui'
 
   # Improve error analytics
   gem 'better_errors'

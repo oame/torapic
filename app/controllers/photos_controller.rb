@@ -5,6 +5,10 @@ class PhotosController < InheritedResources::Base
   before_action :set_photo, only: %i(show edit update destroy)
   before_action :authorize_photo, except: %i(show edit update destroy)
 
+  def index
+    @photos = Photos.all
+  end
+
   def new
     @photo = Photo.new
     render layout: 'layouts/landscape'

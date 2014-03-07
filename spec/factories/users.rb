@@ -13,14 +13,26 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  uid                    :string(255)      default(""), not null
+#  provider               :string(255)      default(""), not null
+#  name                   :string(255)
+#  deleted_at             :datetime
 #  created_at             :datetime
 #  updated_at             :datetime
-#  deleted_at             :datetime
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
   factory :user do
+    name { Faker::Internet.user_name(nil, %w(_)) }
+    email { Faker::Internet.safe_email }
+    password "password"
+    password_confirmation "password"
+
+    trait :as_twitter_user do
+      provider 'twitter'
+      uid { Random.rand(100000) }
+    end
   end
 end

@@ -4,7 +4,7 @@ describe PhotosController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/photos").should route_to("photos#index")
+      get("/photos").should_not route_to("photos#index")
     end
 
     it "routes to #new" do
