@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "items/show" do
+describe "photos/show" do
   before(:each) do
-    @item = assign(:item, stub_model(Item,
+    @photo = assign(:photo, stub_model(Photo,
       :references => ""
     ))
   end

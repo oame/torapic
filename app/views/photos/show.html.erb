@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>References:</strong>
+  <%= @photo.references %>
+</p>
+
+<p>
+  <strong>Expired at:</strong>
+  <%= @photo.expired_at %>
+</p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

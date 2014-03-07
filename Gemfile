@@ -4,6 +4,9 @@ ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
+# Database
+gem 'mysql2'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 
@@ -18,23 +21,27 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'compass-rails'
 gem 'ceaser-easing'
+gem 'bootstrap-sass'
 #gem 'font-awesome-rails'
 
 # Auth
 gem 'devise'
-gem 'cancan'
-gem 'squeel'
+gem 'pundit'
 
-# Model improvements
-gem 'paranoia'
+# Image
 gem 'paperclip'
 
-# View improvements
+# Model helpers
+gem 'paranoia'
+
+# View helpers
 gem 'gravatar_image_tag'
-gem 'kaminari'
 #gem 'rack-pjax'
 
-# Internationalization
+# Pagination
+gem 'kaminari'
+
+# I18n
 gem 'rails-i18n'
 gem 'i18n_generators'
 
@@ -42,28 +49,35 @@ gem 'i18n_generators'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :production do
-  # Database
-  gem 'mysql2'
-
   gem 'unicorn'
   gem 'therubyracer', platforms: :ruby
 end
 
 group :development, :test do
-  # Database
-  gem 'sqlite3'
-
   gem 'quiet_assets'
   gem 'letter_opener'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'annotate'
 
   # Test
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'capybara'
   gem 'database_cleaner'
+
+  # Improve error analytics
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  # Document
+  gem 'yard'
+
+  # Detect vulnerability
+  gem 'brakeman', require: false
+
+  # Detect N+1
+  gem 'bullet'
 
   # Deployment
   gem 'capistrano', '~> 3.0', require: false

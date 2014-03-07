@@ -1,4 +1,6 @@
 Torapic::Application.routes.draw do
+  resources :photos
+
   # Admin
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
