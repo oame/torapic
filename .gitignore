@@ -16,6 +16,31 @@
 /log/*.log
 /tmp
 
-# OS
+## Project
+coverage
+rdoc
+pkg
+tmp
+capybara*.html
+.rvmrc
+.yardoc
+doc
+
+## OS X
 .DS_Store
+.document
+
+## Windows
 Thumbs.db
+
+## TEXTMATE
+*.tmproj
+tmtags
+
+## EMACS
+*~
+\#*
+.\#*
+
+## VIM
+*.swp
