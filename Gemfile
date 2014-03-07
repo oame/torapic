@@ -9,6 +9,7 @@ gem 'mysql2'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
+#gem 'rabl'
 
 # Global settings
 gem 'settingslogic'
@@ -27,6 +28,8 @@ gem 'bootstrap-sass'
 
 # Auth
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
 gem 'pundit'
 
 # Image
@@ -37,14 +40,20 @@ gem 'paranoia'
 
 # View helpers
 gem 'gravatar_image_tag'
-#gem 'rack-pjax'
 
 # Pagination
 gem 'kaminari'
 
 # I18n
 gem 'rails-i18n'
+gem 'i18n-js'
 gem 'i18n_generators'
+
+# Ajax
+gem 'rack-pjax'
+
+# API
+gem 'grape'
 
 # Admin
 gem 'activeadmin', github: 'gregbell/active_admin'
@@ -58,6 +67,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'annotate'
+  gem 'yard'
 
   # Test
   gem 'rspec-rails'
@@ -66,13 +76,11 @@ group :development, :test do
   gem 'faker'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'simplecov'
 
   # Improve error analytics
   gem 'better_errors'
   gem 'binding_of_caller'
-
-  # Document
-  gem 'yard'
 
   # Detect vulnerability
   gem 'brakeman', require: false

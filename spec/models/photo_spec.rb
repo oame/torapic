@@ -2,12 +2,16 @@
 #
 # Table name: photos
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  expired_at :datetime
-#  deleted_at :datetime
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer          not null, primary key
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  user_id            :integer
+#  expired_at         :datetime
+#  deleted_at         :datetime
+#  created_at         :datetime
+#  updated_at         :datetime
 #
 
 require 'spec_helper'
