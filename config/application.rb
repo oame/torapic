@@ -18,5 +18,6 @@ module Torapic
 
     # Language
     I18n.enforce_available_locales = false
+    config.i18n.default_locale = :ja
   end
 end

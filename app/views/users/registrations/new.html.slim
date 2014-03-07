@@ -1,4 +1,4 @@
-h2 Sign up
+h2 = t('helpers.submit.user.submit')
 
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
@@ -20,6 +20,6 @@ h2 Sign up
     br
     = f.password_field :password_confirmation
 
-  div = f.submit "Sign up"
+  .actions = f.submit
 
 = render "users/shared/links"
