@@ -16,6 +16,9 @@
 /tmp
 
 ## Project
+/public/uploads
+
+## Simplecov
 /coverage
 
 ## Env
