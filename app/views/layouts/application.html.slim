@@ -1,21 +1,15 @@
 doctype 5
 html
-  header
+  head
     title Torapic
+
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
   body
-    / for Devise
-    - if notice || alert
-      div class="flash-message #{notice ? "notice" : ""} #{alert ? "error" : ""}"
-        - if notice
-          p = notice
-        - elsif alert
-          p = alert
-        a.flash-close href="#" ×
+    == render 'layouts/devise_messages'
+    == render 'header'
 
-    == render 'layouts/header'
-    = yield
+    == yield
 
     / Scripts

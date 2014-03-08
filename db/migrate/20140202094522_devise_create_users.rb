@@ -35,8 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :provider, null: false, default: ''
       t.string :name
 
-      # Paranoia
-      t.datetime :deleted_at
+      t.datetime :deleted_at # Paranoia
 
       t.timestamps
     end

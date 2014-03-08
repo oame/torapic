@@ -4,9 +4,6 @@ ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
-# Database
-gem 'mysql2'
-
 # Build JSON
 gem 'oj'
 #gem 'jbuilder'
@@ -14,7 +11,8 @@ gem 'rabl'
 
 # Global settings
 gem 'settingslogic'
-# rand
+gem 'dotenv-rails'
+
 # Assets libralies
 gem 'uglifier'
 gem 'sass-rails'
@@ -33,8 +31,10 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pundit'
 
-# Image
-gem 'paperclip'
+# Upload
+gem 'carrierwave'
+gem 'fog'
+gem 'mini_magick'
 
 # Model helpers
 gem 'paranoia'
@@ -60,11 +60,13 @@ gem 'grape'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :production do
-  gem 'unicorn'
-  gem 'therubyracer', platforms: :ruby
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
+  gem 'mysql2'
+
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'annotate'

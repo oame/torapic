@@ -1,4 +1,4 @@
-= image_tag @photo.image.url
+= image_tag @photo.image_url.to_s
 
 = link_to 'Edit', edit_photo_path(@photo)
 '|

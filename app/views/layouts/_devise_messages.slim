@@ -1,0 +1,7 @@
+- if notice || alert
+  div class="flash-message #{notice ? "notice" : ""} #{alert ? "error" : ""}"
+    - if notice
+      p = notice
+    - elsif alert
+      p = alert
+    a.flash-close href="#" ×
