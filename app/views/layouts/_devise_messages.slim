@@ -1,7 +1,13 @@
 - if notice || alert
-  div class="flash-message #{notice ? "notice" : ""} #{alert ? "error" : ""}"
-    - if notice
-      p = notice
-    - elsif alert
-      p = alert
+  .flash-message class="#{notice ? "notice" : ""} #{alert ? "error" : ""}"
+    .flash-text
+      - if notice
+        p = notice
+      - elsif alert
+        p = alert
     a.flash-close href="#" ×
+
+  coffee:
+    $(".flash-close").on "click", (e)->
+      e.preventDefault()
+      $(this).parent().hide()

@@ -9,6 +9,9 @@ gem 'oj'
 #gem 'jbuilder'
 gem 'rabl'
 
+# API
+gem 'grape'
+
 # Global settings
 gem 'settingslogic'
 gem 'dotenv-rails'
@@ -24,6 +27,10 @@ gem 'compass-rails'
 gem 'ceaser-easing'
 gem 'bootstrap-sass'
 #gem 'font-awesome-rails'
+
+gem 'ember-rails'
+gem 'ember-source'
+gem 'emblem-rails'
 
 # Auth
 gem 'devise'
@@ -52,9 +59,6 @@ gem 'i18n_generators'
 
 # Ajax
 gem 'rack-pjax'
-
-# API
-gem 'grape'
 
 # Admin
 gem 'activeadmin', github: 'gregbell/active_admin'

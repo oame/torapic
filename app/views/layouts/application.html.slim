@@ -3,13 +3,14 @@ html
   head
     title Torapic
 
-    = stylesheet_link_tag    "application", media: "all"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag "application", media: "all"
     = csrf_meta_tags
   body
     == render 'layouts/devise_messages'
-    == render 'header'
+    == render 'layouts/header'
 
     == yield
 
     / Scripts
+    == javascript_include_tag "//fast.fonts.net/jsapi/ae647d66-7237-4767-aaa6-a318929c5731.js"
+    == javascript_include_tag "application"

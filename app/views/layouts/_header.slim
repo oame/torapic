@@ -1,9 +1,10 @@
 header.header
-  .logo
-  nav
+  = link_to '', user_signed_in?? :authenticated_root : :unauthenticated_root, class: 'logo', 'data-color' => 'white'
+
+  nav.menu
     ul.horizontal
       li
         - if user_signed_in?
-          = link_to 'Sign out', user_destroy_session_path, method: :delete
+          = link_to 'Sign out', destroy_user_session_path, method: :delete
         - else
           = link_to 'Sign in', new_user_registration_path
