@@ -54,6 +54,14 @@ a {
   }
 }
 
+.box {
+  display: inline-block;
+  padding: 15px;
+  background: #fff;
+  color: $font_color;
+  @include border-radius(3px);
+}
+
 .logo {
   display: block;
 }
@@ -72,13 +80,13 @@ a {
   background: url(asset-path("torapic_landscape_daylight.png"));
   background-position: bottom;
   @include background-size(cover);
+  color: #fff;
+  a { @include link-colors(#fff) }
 }
 
 .header {
   @extend %clearfix;
   padding: 30px;
-  color: #fff;
-  a { @include link-colors(#fff) }
 
   .logo {
     float: left;
