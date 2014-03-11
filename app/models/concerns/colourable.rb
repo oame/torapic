@@ -2,8 +2,6 @@ module Colourable
   extend ActiveSupport::Concern
 
   included do
-    class_attribute :background_color, :text_color
-
     before_save :compute_colors
   end
 
@@ -95,5 +93,3 @@ module Colourable
     self.image_text_color = to_hex(color2)
   end
 end
-
-# ColorSense.compute("test.png")
