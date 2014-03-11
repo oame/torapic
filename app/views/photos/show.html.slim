@@ -1,5 +1,5 @@
 header.header style="background-color: #{@photo.image_background_color}"
-  = link_to '', user_signed_in?? :authenticated_root : :unauthenticated_root, class: 'logo', 'data-color' => 'black'
+  a href="#{user_signed_in?? authenticated_root_path : unauthenticated_root_path}" class='logo icon-logo-black' data-color='black' style="color: #{@photo.image_text_color}"
 
   nav.menu
     ul.horizontal
@@ -11,7 +11,3 @@ header.header style="background-color: #{@photo.image_background_color}"
 
 .photo style="background-color: #{@photo.image_background_color}"
   = image_tag @photo.image_url.to_s, class: "photo-image"
-
-= link_to 'Edit', edit_photo_path(@photo)
-'|
-= link_to 'Back', photos_path

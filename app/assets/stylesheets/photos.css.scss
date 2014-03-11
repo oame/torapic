@@ -4,10 +4,11 @@
 @import "compass";
 
 .photo {
+  padding: 30px;
   text-align: center;
 
   .photo-image {
-    margin: 30px;
+    max-width: 100%;
     @include box-shadow(0 0 3px #bdbdbd);
   }
 }
