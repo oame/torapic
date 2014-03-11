@@ -26,7 +26,7 @@ gem 'jquery-ui-rails'
 gem 'compass-rails'
 gem 'ceaser-easing'
 gem 'bootstrap-sass'
-#gem 'font-awesome-rails'
+gem 'font-awesome-rails'
 
 gem 'ember-rails'
 gem 'ember-source'
