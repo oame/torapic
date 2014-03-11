@@ -42,6 +42,7 @@ gem 'pundit'
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
+gem 'rmagick'
 
 # Model helpers
 gem 'paranoia'

@@ -1,6 +1,9 @@
-h1 New photo
+.wrapper.landscape
+  == render 'layouts/header'
 
-.box
-  == render 'form'
+  h1 New photo
 
-= link_to 'Back', photos_path
+  .box
+    == render 'form'
+
+  = link_to 'Back', photos_path

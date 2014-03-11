@@ -10,7 +10,6 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
-    render layout: 'layouts/landscape'
   end
 
   def create

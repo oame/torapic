@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20140307040016) do
     t.string   "image"
     t.integer  "user_id"
     t.datetime "expired_at"
+    t.string   "image_background_color"
+    t.string   "image_text_color"
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"

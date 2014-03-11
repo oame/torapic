@@ -1,4 +1,16 @@
-= image_tag @photo.image_url.to_s
+header.header style="background-color: #{@photo.image_background_color}"
+  = link_to '', user_signed_in?? :authenticated_root : :unauthenticated_root, class: 'logo', 'data-color' => 'black'
+
+  nav.menu
+    ul.horizontal
+      li
+        - if user_signed_in?
+          = link_to 'Sign out', destroy_user_session_path, method: :delete
+        - else
+          = link_to 'Sign in', new_user_registration_path
+
+.photo style="background-color: #{@photo.image_background_color}"
+  = image_tag @photo.image_url.to_s, class: "photo-image"
 
 = link_to 'Edit', edit_photo_path(@photo)
 '|
