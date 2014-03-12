@@ -3,12 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "compass";
 
+.photo-form {
+  margin-top: 200px;
+  padding: 40px;
+}
+
 .photo {
   padding: 30px;
   text-align: center;
 
   .photo-image {
-    max-width: 100%;
     @include box-shadow(0 0 3px #bdbdbd);
+    max-width: 100%;
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+
+    &.zoomed-in {
+      max-width: none;
+      cursor: -webkit-zoom-out;
+      cursor: -moz-zoom-out;
+    }
   }
 }

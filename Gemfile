@@ -27,6 +27,7 @@ gem 'compass-rails'
 gem 'ceaser-easing'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'dropzonejs-rails'
 
 gem 'ember-rails'
 gem 'ember-source'

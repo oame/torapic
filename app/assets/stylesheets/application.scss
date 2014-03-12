@@ -1,13 +1,5 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
+ *= require dropzone/basic
  *= require_self
  *= require_tree .
 */
@@ -62,6 +54,19 @@ a {
   @include border-radius(3px);
 }
 
+.file-input {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+  background-color: #eee;
+
+  input[type=file] {
+    opacity: 0;
+    position: absolute;
+  }
+}
+
 .logo {
   display: block;
 }
@@ -86,6 +91,7 @@ a {
   @include background-size(cover);
   color: #fff;
   a { @include link-colors(#fff) }
+  text-align: center;
 }
 
 .header {
