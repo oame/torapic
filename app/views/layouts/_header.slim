@@ -1,11 +1,3 @@
 header.header
   = link_to '', user_signed_in?? :authenticated_root : :unauthenticated_root, class: 'logo', 'data-color' => 'white'
 
-  nav.menu
-    ul.horizontal
-      li
-        - if user_signed_in?
-          = link_to "Manage Photo", photos_path
-          = link_to t("devise.helper.sign_out"), destroy_user_session_path, method: :delete
-        - else
-          = link_to t("devise.helper.sign_in"), new_user_registration_path
