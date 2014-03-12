@@ -5,6 +5,7 @@ header.header
     ul.horizontal
       li
         - if user_signed_in?
-          = link_to 'Sign out', destroy_user_session_path, method: :delete
+          = link_to "Manage Photo", photos_path
+          = link_to t("devise.helper.sign_out"), destroy_user_session_path, method: :delete
         - else
-          = link_to 'Sign in', new_user_registration_path
+          = link_to t("devise.helper.sign_in"), new_user_registration_path

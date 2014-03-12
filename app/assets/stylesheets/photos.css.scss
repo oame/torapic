@@ -13,7 +13,7 @@
   text-align: center;
 
   .photo-image {
-    @include box-shadow(0 0 3px #bdbdbd);
+    // @include box-shadow(0 0 3px #bdbdbd);
     max-width: 100%;
     cursor: -webkit-zoom-in;
     cursor: -moz-zoom-in;

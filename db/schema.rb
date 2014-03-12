@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20140307040016) do
     t.datetime "expired_at"
     t.string   "image_background_color"
     t.string   "image_text_color"
+    t.string   "image_link_color"
+    t.string   "image_shadow_color"
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"

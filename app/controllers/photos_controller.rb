@@ -5,6 +5,10 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: %i(show edit update destroy)
   before_action :authorize_photo, except: %i(show edit update destroy)
 
+  def index
+    @photos = current_user.photos
+  end
+
   def show
   end
 

@@ -19,4 +19,11 @@ header.header style="background-color: #{@photo.image_background_color}"
         $(this).addClass("zoomed-in")
 
 css:
-  html, body { background-color: #{@photo.image_background_color} !important; }
+  html, body {
+    background-color: #{@photo.image_background_color} !important;
+  }
+
+  .photo-image {
+    box-shadow: 0 0 3px #{@photo.image_shadow_color} !important;
+    -moz-box-shadow: 0 0 3px #{@photo.image_shadow_color} !important;
+  }

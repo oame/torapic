@@ -1,10 +1,6 @@
 = form_for @photo, html: { multipart: true }, class: "dropzone" do |f|
   == render 'error_explanation', { record: @photo }
-  .fallback
-    input name="file" type="file"
 
-  .file-input
-    | Drop or Select
-    = f.file_field :image
+  = f.file_field :image
 
   .actions = f.submit

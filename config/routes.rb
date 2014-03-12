@@ -12,7 +12,7 @@ Torapic::Application.routes.draw do
   }
 
   # Photo
-  resources :photos, except: [:index] do
+  resources :photos do
     member do
       get :download
     end

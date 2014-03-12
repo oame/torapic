@@ -2,7 +2,7 @@ module Colourable
   extend ActiveSupport::Concern
 
   included do
-    before_save :compute_colors
+    before_save :invoke
   end
 
   class Pixel < Array
@@ -47,6 +47,32 @@ module Colourable
       Math.sqrt(c1yuv.zip(c2yuv).map { |x| (x[1] - x[0])**2 }.reduce(:+))
     end
 
+    def brightness
+      (0.2126*@red) + (0.7152*@green) + (0.0722*@blue)
+    end
+
+    def dark?
+      brightness < 128
+    end
+
+    def light?
+      brightness > 128
+    end
+
+    def darken(amount=0.4)
+      r = (@red.to_i * amount).round
+      g = (@green.to_i * amount).round
+      b = (@blue.to_i * amount).round
+      Pixel.new(r, g, b)
+    end
+
+    def lighten(amount=0.6)
+      r = [(@red.to_i + 255 * amount).round, 255].min
+      g = [(@green.to_i + 255 * amount).round, 255].min
+      b = [(@blue.to_i + 255 * amount).round, 255].min
+      Pixel.new(r, g, b)
+    end
+
     private
 
     def self.justify_depth(number)
@@ -65,53 +91,92 @@ module Colourable
   class Pixels < Array
     def initialize(image)
       @image  = image
-      @pixels = []
-      image.each_pixel do |pixel, x, y|
-        @pixels << Pixel.new_with_justify(pixel.red, pixel.green, pixel.blue)
+
+      pixels = []
+      @image.each_pixel do |pixel, x, y|
+        pixels << Pixel.new_with_justify(pixel.red, pixel.green, pixel.blue)
       end
-      super(@pixels)
+
+      super(pixels)
+      sort_color!
+    end
+
+    def sort_color
+      grouped = self.group_by { |pixel| pixel }
+      grouped.sort_by { |k, v| v.size }.reverse.map{|k, v| v.first}
+    end
+
+    def sort_color!
+      _ = sort_color
+      self.clear
+      self.concat _
     end
 
     def dominant_color
-      grouped = @pixels.group_by { |pixel| pixel.join }
-      @dominant_color ||= grouped.sort_by { |k, v| v.size }.last[1].first
+      self.first
     end
 
     def edge_color
       width = @image.columns
       height = @image.rows
-      crop_top    = @image.crop(Magick::NorthWestGravity, 0, 0, width, 10).resize(30, 30)
-      crop_right  = @image.crop(Magick::NorthEastGravity, 0, 0, 10, height).resize(30, 30).rotate!(90)
-      crop_bottom = @image.crop(Magick::SouthWestGravity, 0, 0, width, 10).resize(30, 30)
-      crop_left   = @image.crop(Magick::NorthEastGravity, 0, 0, 10, height).resize(30, 30).rotate!(90)
-      merged = Magick::ImageList.new
-      merged = merged.push(crop_top).push(crop_right).push(crop_bottom).push(crop_left).append(true)
-      merged_pixels = Pixels.new(merged)
+      crop_top    = @image.crop(Magick::NorthWestGravity, 0, 0, width, 10).resize(100, 100)
+      crop_right  = @image.crop(Magick::NorthEastGravity, 0, 0, 10, height).resize(100, 100).rotate!(90)
+      crop_bottom = @image.crop(Magick::SouthWestGravity, 0, 0, width, 10).resize(100, 100)
+      crop_left   = @image.crop(Magick::NorthEastGravity, 0, 0, 10, height).resize(100, 100).rotate!(90)
+
+      merged_image = Magick::ImageList.new
+      merged_image = merged_image.push(crop_top).push(crop_right).push(crop_bottom).push(crop_left).append(true)
+      merged_pixels = Pixels.new(merged_image)
+
       @edge_color ||= merged_pixels.dominant_color
-    end
-
-    def most_far(source_pixel)
-      response = @pixels.first
-      current = 0
-
-      @pixels.each do |pixel|
-        distance = source_pixel.distance(pixel)
-        if distance > current
-          response = pixel
-          current = distance
-        end
-      end
-      return response
     end
   end
 
-  def compute_colors
+  def most_far(source_pixels, target)
+    response = source_pixels.first
+    current = 0
+
+    source_pixels.each do |pixel|
+      distance = target.distance(pixel)
+      if distance > current
+        response = pixel
+        current = distance
+      end
+    end
+    return response
+  end
+
+  def far(source_pixels, target, minimum_distance=30)
+    response = source_pixels.select do |pixel|
+      distance = target.distance(pixel)
+      puts distance
+      distance > minimum_distance
+    end
+
+    return response.present? ? response.first : most_far(source_pixels, target)
+  end
+
+  def reduce(source_pixels, target, tolerance=2)
+    source_pixels.reject do |pixel|
+      dist = pixel.distance(target)
+      dist < tolerance
+    end
+  end
+
+  def invoke
     source_image = Magick::ImageList.new(image.path)
     pixels = Pixels.new(source_image.resize(250, 250))
+
     color1 = pixels.edge_color
-    color2 = pixels.most_far(color1)
+
+    color2 = far(pixels, color1)
+    pool_without_color2 = reduce(pixels, color2)
+
+    color3 = pool_without_color2.first
 
     self.image_background_color = color1.to_hex
     self.image_text_color = color2.to_hex
+    self.image_link_color = color3.to_hex
+    self.image_shadow_color = color1.darken(0.8).to_hex
   end
 end
