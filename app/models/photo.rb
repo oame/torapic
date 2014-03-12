@@ -8,6 +8,8 @@
 #  expired_at             :datetime
 #  image_background_color :string(255)
 #  image_text_color       :string(255)
+#  image_link_color       :string(255)
+#  image_shadow_color     :string(255)
 #  deleted_at             :datetime
 #  created_at             :datetime
 #  updated_at             :datetime
@@ -21,6 +23,7 @@ class Photo < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  # Return true if photo has been expired
   def expired?
     expired_at < Time.now
   end

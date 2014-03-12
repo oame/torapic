@@ -28,8 +28,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :omniauthable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :items
+  has_many :photos
 
+  # Omniauth
   def self.create_unique_string
     SecureRandom.uuid
   end
