@@ -1,3 +1,6 @@
 header.header
-  = link_to '', user_signed_in?? :authenticated_root : :unauthenticated_root, class: 'logo', id: 'js-sidebar-toggle', 'data-color' => 'white'
+  /= link_to '', user_root_path,
+    class: 'logo icon-torapic-logo-square',
+    id: 'js-sidebar-toggle',
+    data: { color: 'white' }
 

@@ -2,16 +2,17 @@
 
 .sidebar {
   position: absolute;
-  overflow: hidden;
   top: 0;
   left: 0;
   bottom: 0;
   background-color: #202020;
   @include font-colors(#838383);
+}
 
-  .sidebar-button {
-    position: absolute;
-  }
+.sidebar-header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .sidebar-scrollable {
@@ -67,12 +68,12 @@
 .container {
   width: 100%;
   height: 100%;
-  overflow: hidden;
 
   // Transition
   @include transition(all 0.3s);
 }
 
+// Transition
 body.sidebar-open {
   .sidebar-overlay {
     display: block;

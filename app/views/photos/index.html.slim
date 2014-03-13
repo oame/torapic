@@ -1,17 +1,5 @@
-h1 Listing photos
+.wrapper
+  == render 'layouts/header'
 
-table
-  tr
-    th
-    th
-    th
+  .box.photo-form
 
-  - @photos.each do |photo|
-    tr
-      td = link_to 'Show', photo
-      td = link_to 'Edit', edit_photo_path(photo)
-      td = link_to 'Destroy', photo, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Photo', new_photo_path

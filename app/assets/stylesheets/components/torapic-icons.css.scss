@@ -1,23 +1,23 @@
 @font-face {
-  font-family: 'torapic-font';
-  src: url(asset-path("torapic-font.eot"));
-  src: url(asset-path("torapic-font.eot")) format('embedded-opentype'),
-       url(asset-path("torapic-font.woff")) format('woff'),
-       url(asset-path("torapic-font.ttf")) format('truetype'),
-       url(asset-path("torapic-font.svg?#torapic-font")) format('svg');
+  font-family: 'torapic-icons';
+  src: url(asset-path("torapic-icons.eot"));
+  src: url(asset-path("torapic-icons.eot")) format('embedded-opentype'),
+       url(asset-path("torapic-icons.woff")) format('woff'),
+       url(asset-path("torapic-icons.ttf")) format('truetype'),
+       url(asset-path("torapic-icons.svg?#torapic-icons")) format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
-    font-family: 'torapic-font';
-    src: url(asset-path("torapic-font.svg?#torapic-font")) format('svg');
+    font-family: 'torapic-icons';
+    src: url(asset-path("torapic-icons.svg?#torapic-icons")) format('svg');
   }
 }
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "torapic-font";
+  font-family: "torapic-icons";
   font-style: normal;
   font-weight: normal;
   speak: none;
@@ -41,4 +41,5 @@
   // margin-left: .2em;
 }
 
-.icon-logo-black:before { content: '\e800'; }
+.icon-torapic-logo-square:before { content: '\e800'; } /* '' */
+.icon-torapic-logo:before { content: '\e801'; } /* '' */

@@ -9,11 +9,17 @@ html
     = csrf_meta_tags
   body
     nav.sidebar
+      .sidebar-header
+        = link_to '', user_root_path,
+          class: 'logo icon-torapic-logo-square',
+          id: 'js-sidebar-toggle',
+          data: { color: 'white' }
+
       .sidebar-scrollable
         ul.sidebar-list
           li.sidebar-list-item
             = link_to user_signed_in?? :authenticated_root : :unauthenticated_root do
-              i.sidebar-list-item-icon.icon-logo-black
+              i.sidebar-list-item-icon.icon-torapic-logo
               | Home
           - if user_signed_in?
             li.sidebar-list-item

@@ -1,6 +1,6 @@
 /*
  *= require dropzone/basic
- *= require components/torapic-font
+ *= require components/torapic-icons
  *= require components/sidebar
  *= require_self
 */
@@ -62,15 +62,15 @@ body {
 
 .logo {
   display: block;
+  font-size: 45px;
 }
 
 .logo[data-color=white] {
-  @include retina(logo-white);
-  @include fixed-size(logo-white);
+  color: #fff;
 }
 
 .logo[data-color=black] {
-  font-size: 45px;
+  color: #000;
 }
 
 .wrapper {

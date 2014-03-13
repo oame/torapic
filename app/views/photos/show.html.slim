@@ -1,5 +1,8 @@
 header.header style="background-color: #{@photo.image_background_color}"
-  a#js-sidebar-toggle href="#{user_signed_in?? authenticated_root_path : unauthenticated_root_path}" class='logo icon-logo-black' data-color='black' style="color: #{@photo.image_text_color}"
+  = link_to '', user_root_path,
+    class: 'logo icon-torapic-logo-square',
+    id: 'js-sidebar-toggle',
+    style: "color: #{@photo.image_text_color}"
 
 .photo style="background-color: #{@photo.image_background_color}"
   = image_tag @photo.image_url.to_s, class: "photo-image"
