@@ -18,6 +18,8 @@ body {
   font-size: 13px;
   font-family: $ff-gothic-full;
   color: $font_color;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -80,27 +82,57 @@ a {
   font-size: 45px;
 }
 
-.st-container {
-  perspective: 1500px;
-  perspective-origin: 0% 50%;
+.sidebar {
+  width: 280px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #000;
+  color: #fff;
 
-  .st-pusher {
-    transform-style: preserve-3d;
+  a {
+    @include link-colors(#fff);
+    text-decoration: none;
   }
 
-  .st-menu-open.st-pusher {
-    transform: translate3d(300px, 0, 0);
+  display: none;
+
+  .sidebar-list-item {
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
+.sidebar-overlay {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 280px;
+  z-index: 900;
+  position: absolute;
+  background: rgba(0.0, 0.0, 0.0, 0.3);
+  display: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+
+  @include transition(all 0.3s);
+}
+
+body.sidebar-open {
+  .sidebar {
+    display: block;
   }
 
-  .st-menu {
-    transform: translate3d(-100%, 0, 0) rotateY(-90deg);
-    transform-origin: 100% 50%;
-    transform-style: preserve-3d;
+  .sidebar-overlay {
+    display: block;
   }
 
-  .st-menu-open.st-menu {
-    visibility: visible;
-    transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  .container {
+    @include transform(translate3d(280px, 0, 0));
   }
 }
 
@@ -120,7 +152,7 @@ a {
 
 .header {
   @extend %clearfix;
-  padding: 30px;
+  padding: 20px;
 
   .logo {
     float: left;

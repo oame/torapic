@@ -7,19 +7,31 @@ html
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
     = csrf_meta_tags
   body
-    .st-container
-      .st-menu
-        ul.horizontal
-          li
-            - if user_signed_in?
-              = link_to "Manage Photo", photos_path
-              = link_to t("devise.helper.sign_out"), destroy_user_session_path, method: :delete
-            - else
-              = link_to t("devise.helper.sign_in"), new_user_registration_path
-      .st-pusher
-        == render 'layouts/devise_messages'
-        == yield
+    nav.sidebar
+      ul
+        - if user_signed_in?
+          li.sidebar-list-item
+            a href=photos_path
+              span.icons.logo-black
+              | Home
+          li.sidebar-list-item = link_to t("devise.helper.sign_out"), destroy_user_session_path, method: :delete
+        - else
+          li.sidebar-list-item = link_to t("devise.helper.sign_in"), new_user_registration_path
+    .sidebar-overlay
+    .container
+      == render 'layouts/devise_messages'
+      == yield
 
     / Scripts
     == javascript_include_tag "//fast.fonts.net/jsapi/ae647d66-7237-4767-aaa6-a318929c5731.js"
     == javascript_include_tag "application"
+
+coffee:
+  $("#js-sidebar-toggle").on "click", (e)->
+    e.preventDefault()
+
+    if $("body").hasClass("sidebar-open")
+      $("body").removeClass("sidebar-open")
+    else
+      $("body").addClass("sidebar-open")
+
