@@ -1,6 +1,3 @@
-// Place all the styles related to the photos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @import "compass";
 
 .photo-form {
@@ -8,7 +5,24 @@
   padding: 40px;
 }
 
+.sidebar-header {
+  @extend %clearfix;
+
+  &:hover {
+    .photo-info-list {
+      opacity: 1;
+    }
+  }
+}
+
+.logo {
+  float: left;
+}
+
 .photo-info-list {
+  float: left;
+  margin: 3px 0 0 8px;
+
   .photo-info-item {
     margin: 5px 0 0 0;
     white-space: nowrap;
@@ -25,18 +39,11 @@
   opacity: 0;
 }
 
-.sidebar-header:hover {
-  .photo-info-list {
-    opacity: 1;
-  }
-}
-
 .photo {
-  padding: 30px;
+  padding: 90px 20px 0;
   text-align: center;
 
   .photo-image {
-    // @include box-shadow(0 0 3px #bdbdbd);
     max-width: 100%;
     cursor: -webkit-zoom-in;
     cursor: -moz-zoom-in;

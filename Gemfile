@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -21,22 +22,24 @@ gem 'uglifier'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'slim-rails'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
 gem 'compass-rails'
+gem 'jquery-rails'
 gem 'ceaser-easing'
-gem 'bootstrap-sass'
 gem 'font-awesome-rails'
-gem 'dropzonejs-rails'
 
-gem 'ember-rails'
-gem 'ember-source'
-gem 'emblem-rails'
+gem 'rails-assets-bootstrap-sass'
+gem 'rails-assets-backbone'
+gem 'rails-assets-moment'
+gem 'rails-assets-dropzone'
 
-# Auth
+gem 'sprockets', '2.11.0' # Shitttttt
+
+# Authentication
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
+
+# Authorization
 gem 'pundit'
 
 # Upload

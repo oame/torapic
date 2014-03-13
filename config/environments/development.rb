@@ -28,8 +28,4 @@ Torapic::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
-  # EmberJS
-  config.ember.variant = :development
-  #config.handlebars.precompile = false
 end

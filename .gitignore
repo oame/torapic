@@ -15,19 +15,18 @@
 /log/*.log
 /tmp
 
-## Project
+## Carrierwave
 /public/uploads
 
 ## Simplecov
 /coverage
 
-## Env
+## Dotenv
 /.env
 
-## Document
+## Yard
 /.yardoc
 /doc
-/rdoc
 
 ## OS X
 .DS_Store
