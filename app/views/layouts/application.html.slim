@@ -10,10 +10,13 @@ html
   body
     nav.sidebar
       .sidebar-header
-        = link_to '', user_root_path,
-          class: 'logo icon-torapic-logo-square',
-          id: 'js-sidebar-toggle',
-          data: { color: 'white' }
+        - if content_for?(:header)
+          = yield(:header)
+        - else
+          = link_to '', user_root_path,
+            class: 'logo icon-torapic-logo-square',
+            id: 'js-sidebar-toggle',
+            data: { color: 'white' }
 
       .sidebar-scrollable
         ul.sidebar-list
@@ -37,8 +40,10 @@ html
                 | Sign in
     .sidebar-overlay
     .container
-      == render 'layouts/devise_messages'
-      == yield
+      .scrollable-region
+        .scrollable-content
+          == render 'layouts/devise_messages'
+          == yield
 
     / Scripts
     == javascript_include_tag "//fast.fonts.net/jsapi/ae647d66-7237-4767-aaa6-a318929c5731.js"

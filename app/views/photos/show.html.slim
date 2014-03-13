@@ -1,8 +1,15 @@
-header.header style="background-color: #{@photo.image_background_color}"
+- content_for(:header) do
   = link_to '', user_root_path,
     class: 'logo icon-torapic-logo-square',
     id: 'js-sidebar-toggle',
     style: "color: #{@photo.image_text_color}"
+  ul.photo-info-list style="color: #{@photo.image_text_color}"
+    li.photo-info-item
+      i.photo-info-icon.fa.fa-eye
+      | 100
+    li.photo-info-item
+      i.photo-info-icon.fa.fa-clock-o
+      | 10m
 
 .photo style="background-color: #{@photo.image_background_color}"
   = image_tag @photo.image_url.to_s, class: "photo-image"

@@ -8,6 +8,29 @@
   padding: 40px;
 }
 
+.photo-info-list {
+  .photo-info-item {
+    margin: 5px 0 0 0;
+    white-space: nowrap;
+
+    .photo-info-icon {
+      width: 15px;
+      text-align: center;
+      margin-right: 2px;
+    }
+  }
+
+  // Transition
+  @include transition(all 0.3s);
+  opacity: 0;
+}
+
+.sidebar-header:hover {
+  .photo-info-list {
+    opacity: 1;
+  }
+}
+
 .photo {
   padding: 30px;
   text-align: center;

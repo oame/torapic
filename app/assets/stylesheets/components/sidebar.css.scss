@@ -10,9 +10,10 @@
 }
 
 .sidebar-header {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
+  z-index: 1000;
 }
 
 .sidebar-scrollable {
@@ -26,12 +27,12 @@
 
 .sidebar-list {
   .sidebar-list-item:first-child {
-    margin-top: 20px;
+    margin-top: 22px;
   }
 
   .sidebar-list-item > a {
     height: 45px;
-    padding: 0 16px 0 62px;
+    padding: 0 16px 0 80px;
     display: block;
     line-height: 45px;
     font-family: 'Ysobel W01', sans-serif;
@@ -44,11 +45,12 @@
   }
 
   .sidebar-list-item-icon {
+    width: 40px;
     position: absolute;
     display: block;
-    font-size: 25px;
+    font-size: 28px;
     text-align: center;
-    left: 18px;
+    left: 23px;
     line-height: 45px;
   }
 }
@@ -65,9 +67,24 @@
   display: none;
 }
 
+.scrollable-region {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+
+.scrollable-content {
+  overflow: auto;
+  position: relative;
+  height: 100%;
+}
+
 .container {
   width: 100%;
   height: 100%;
+  position: fixed;
+  overflow: hidden;
 
   // Transition
   @include transition(all 0.3s);
@@ -82,10 +99,6 @@ body.sidebar-open {
   .container {
     @include transform(translate3d(280px, 0, 0));
     left: 0;
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
     z-index: 800;
   }
 }
