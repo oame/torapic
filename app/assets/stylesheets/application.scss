@@ -1,20 +1,12 @@
 /*
  *= require dropzone/basic
+ *= require components/torapic-font
+ *= require components/sidebar
  *= require_self
- *= require_tree .
 */
 
-@import "ceaser-easing";
-@import "font-awesome";
 @import "compass/reset";
-@import "compass";
-@import "modules/mixins";
-@import "modules/views";
-
-$font_color: #5d5d5d;
-$bg_color: #fff;
-$high_color: #f7ee5e;
-$thin_color: #dbdbdb;
+@import "config";
 
 body {
   font-size: 13px;
@@ -79,102 +71,6 @@ body {
 
 .logo[data-color=black] {
   font-size: 45px;
-}
-
-.sidebar {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background-color: #202020;
-  @include font-colors(#838383);
-
-  .sidebar-button {
-    position: absolute;
-  }
-}
-
-.sidebar-scrollable {
-  height: 100%;
-
-  // Transition
-  display: none;
-  overflow: auto;
-  @include transition(all 0.3s);
-}
-
-.sidebar-list {
-  .sidebar-list-item:first-child {
-    margin-top: 20px;
-  }
-
-  .sidebar-list-item > a {
-    height: 45px;
-    padding: 0 16px 0 62px;
-    display: block;
-    line-height: 45px;
-    font-family: 'Ysobel W01', sans-serif;
-    font-size: 14px;
-    @include omit-link;
-
-    &:hover {
-      color: #fff;
-    }
-  }
-
-  .sidebar-list-item-icon {
-    position: absolute;
-    display: block;
-    font-size: 25px;
-    text-align: center;
-    left: 18px;
-    line-height: 45px;
-  }
-}
-
-.sidebar-overlay {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 280px;
-  z-index: 900;
-  position: absolute;
-
-  // Transition
-  display: none;
-}
-
-.container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-
-  // Transition
-  @include transition(all 0.3s);
-}
-
-body.sidebar-open {
-  .sidebar-overlay {
-    display: block;
-  }
-
-  .container {
-    @include transform(translate3d(280px, 0, 0));
-    left: 0;
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    z-index: 800;
-  }
-}
-
-body.sidebar-visible {
-  .sidebar-scrollable {
-    width: 280px;
-    display: block;
-  }
 }
 
 .wrapper {

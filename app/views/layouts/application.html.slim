@@ -4,6 +4,7 @@ html
     title Torapic
 
     = stylesheet_link_tag "application", media: "all"
+    = stylesheet_link_tag controller.controller_name, media: "all"
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
     = csrf_meta_tags
   body
@@ -36,14 +37,3 @@ html
     / Scripts
     == javascript_include_tag "//fast.fonts.net/jsapi/ae647d66-7237-4767-aaa6-a318929c5731.js"
     == javascript_include_tag "application"
-
-coffee:
-  $("#js-sidebar-toggle").on "click", (e)->
-    e.preventDefault()
-    $("body").addClass("sidebar-open sidebar-visible")
-
-  $(".sidebar-overlay").on "click", ->
-    $("body").removeClass("sidebar-open")
-    setTimeout ->
-      $("body").removeClass("sidebar-visible")
-    , 300
