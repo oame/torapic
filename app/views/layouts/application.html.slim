@@ -8,15 +8,26 @@ html
     = csrf_meta_tags
   body
     nav.sidebar
-      ul
-        - if user_signed_in?
+      .sidebar-scrollable
+        ul.sidebar-list
           li.sidebar-list-item
-            a href=photos_path
-              span.icons.logo-black
+            = link_to user_signed_in?? :authenticated_root : :unauthenticated_root do
+              i.sidebar-list-item-icon.icon-logo-black
               | Home
-          li.sidebar-list-item = link_to t("devise.helper.sign_out"), destroy_user_session_path, method: :delete
-        - else
-          li.sidebar-list-item = link_to t("devise.helper.sign_in"), new_user_registration_path
+          - if user_signed_in?
+            li.sidebar-list-item
+              = link_to photos_path do
+                i.sidebar-list-item-icon.fa.fa-picture-o
+                | Manage Photos
+            li.sidebar-list-item
+              = link_to destroy_user_session_path, method: :delete do
+                i.sidebar-list-item-icon.fa.fa-sign-out
+                | Sign out
+          - else
+            li.sidebar-list-item
+              = link_to new_user_registration_path do
+                i.sidebar-list-item-icon.fa.fa-sign-in
+                | Sign in
     .sidebar-overlay
     .container
       == render 'layouts/devise_messages'
@@ -29,9 +40,10 @@ html
 coffee:
   $("#js-sidebar-toggle").on "click", (e)->
     e.preventDefault()
+    $("body").addClass("sidebar-open sidebar-visible")
 
-    if $("body").hasClass("sidebar-open")
-      $("body").removeClass("sidebar-open")
-    else
-      $("body").addClass("sidebar-open")
-
+  $(".sidebar-overlay").on "click", ->
+    $("body").removeClass("sidebar-open")
+    setTimeout ->
+      $("body").removeClass("sidebar-visible")
+    , 300
