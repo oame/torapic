@@ -146,7 +146,7 @@ module Colourable
     return response
   end
 
-  def far(source_pixels, target, minimum_distance=30)
+  def far(source_pixels, target, minimum_distance=50)
     response = source_pixels.select do |pixel|
       distance = target.distance(pixel)
       distance > minimum_distance

@@ -1,5 +1,10 @@
 @import "compass";
+@import "ceaser-easing";
 @import "modules/mixins";
+
+body {
+  background: #202020;
+}
 
 .sidebar {
   position: absolute;
@@ -24,7 +29,7 @@
     opacity: 1;
   }
 
-  @include transition(all 0.3s);
+  @include transition(all 0.3s ceaser($easeOutQuart));
   opacity: 0;
 }
 
@@ -34,7 +39,6 @@
   // Transition
   display: none;
   overflow: auto;
-  @include transition(all 0.3s);
 }
 
 .sidebar-list {
@@ -49,7 +53,7 @@
     line-height: 45px;
     font-family: 'Ysobel W01', sans-serif;
     font-size: 14px;
-    @include omit-link;
+    text-decoration: none;
 
     &:hover {
       color: #fff;
@@ -87,7 +91,7 @@
   background: #fff;
 
   // Transition
-  @include transition(all 0.3s);
+  @include transition(all 0.3s ceaser($easeInOutQuart));
 }
 
 .scrollable-region {
