@@ -1,22 +1,16 @@
 @import "compass";
 
-.photo-form {
-  margin-top: 200px;
-  padding: 40px;
-}
-
 .sidebar-header {
   @extend %clearfix;
 
-  &:hover {
-    .photo-info-list {
-      opacity: 1;
-    }
+  .logo {
+    float: left;
   }
 }
 
-.logo {
-  float: left;
+.photo-form {
+  margin-top: 200px;
+  padding: 40px;
 }
 
 .photo-info-list {
@@ -33,14 +27,10 @@
       margin-right: 2px;
     }
   }
-
-  // Transition
-  @include transition(all 0.3s);
-  opacity: 0;
 }
 
 .photo {
-  padding: 90px 20px 0;
+  padding: 20px;
   text-align: center;
 
   .photo-image {

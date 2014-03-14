@@ -11,14 +11,15 @@
       i.photo-info-icon.fa.fa-clock-o
       | 10m
 
-.photo style="background-color: #{@photo.image_background_color}"
-  = image_tag @photo.image_url.to_s, class: "photo-image"
-  coffee:
-    $(".photo-image").on "click", ->
-      if $(this).hasClass("zoomed-in")
-        $(this).removeClass("zoomed-in")
-      else
-        $(this).addClass("zoomed-in")
+.wrapper style="background-color: #{@photo.image_background_color}"
+  .photo
+    = image_tag @photo.image_url.to_s, class: "photo-image"
+    coffee:
+      $(".photo-image").on "click", ->
+        if $(this).hasClass("zoomed-in")
+          $(this).removeClass("zoomed-in")
+        else
+          $(this).addClass("zoomed-in")
 
 css:
   html, body {

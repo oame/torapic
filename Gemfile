@@ -7,7 +7,6 @@ gem 'rails', '4.0.3'
 
 # Build JSON
 gem 'oj'
-#gem 'jbuilder'
 gem 'rabl'
 
 # API
@@ -31,8 +30,9 @@ gem 'rails-assets-bootstrap-sass'
 gem 'rails-assets-backbone'
 gem 'rails-assets-moment'
 gem 'rails-assets-dropzone'
+gem 'rails-assets-jquery-waypoints'
 
-gem 'sprockets', '2.11.0' # Shitttttt
+gem 'sprockets', '2.11.0' # Fucking shit!!!
 
 # Authentication
 gem 'devise'
@@ -63,7 +63,7 @@ gem 'i18n-js'
 gem 'i18n_generators'
 
 # Ajax
-gem 'rack-pjax'
+#gem 'rack-pjax'
 
 # Admin
 gem 'activeadmin', github: 'gregbell/active_admin'

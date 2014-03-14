@@ -5,20 +5,23 @@ html
 
     = stylesheet_link_tag "application", media: "all"
     = stylesheet_link_tag controller.controller_name, media: "all"
+
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
+    = javascript_include_tag "application"
+
     = csrf_meta_tags
   body
     nav.sidebar
-      .sidebar-header
+      .sidebar-header.visible
         - if content_for?(:header)
           = yield(:header)
         - else
           = link_to '', user_root_path,
             class: 'logo icon-torapic-logo-square',
             id: 'js-sidebar-toggle',
-            data: { color: 'white' }
+            data: { color: content_for?(:header_icon_color) ? yield(:header_icon_color) : 'gray' }
 
-      .sidebar-scrollable
+      .sidebar-scrollable-content
         ul.sidebar-list
           li.sidebar-list-item
             = link_to user_signed_in?? :authenticated_root : :unauthenticated_root do
@@ -39,12 +42,11 @@ html
                 i.sidebar-list-item-icon.fa.fa-sign-in
                 | Sign in
     .sidebar-overlay
-    .container
+    .scrollable-container
       .scrollable-region
         .scrollable-content
           == render 'layouts/devise_messages'
           == yield
 
-    / Scripts
-    == javascript_include_tag "//fast.fonts.net/jsapi/ae647d66-7237-4767-aaa6-a318929c5731.js"
-    == javascript_include_tag "application"
+    / Lazy-load Scripts
+    = javascript_include_tag "//fast.fonts.net/jsapi/ae647d66-7237-4767-aaa6-a318929c5731.js"
