@@ -1,6 +1,9 @@
 .wrapper
   .layout
-    h1 Manage Photos
-
-    .box.photo-form
+    h2 Manage Photos
+    .columns.group
+      - @photos.each do |photo|
+        .column
+          = link_to photo do
+            = image_tag photo.image.thumb.url
 

@@ -29,7 +29,7 @@ body {
     opacity: 1;
   }
 
-  @include transition(all 0.3s ceaser($easeOutQuart));
+  @include transition(all 0.5s ceaser($easeOutQuad));
   opacity: 0;
 }
 
@@ -51,7 +51,7 @@ body {
     padding: 0 16px 0 80px;
     display: block;
     line-height: 45px;
-    font-family: 'Ysobel W01', sans-serif;
+    font-family: 'Novecento Sans W01 Bd', sans-serif;
     font-size: 14px;
     text-decoration: none;
 

@@ -1,0 +1,46 @@
+@import "compass";
+@import "ceaser-easing";
+@import "modules/mixins";
+
+.button {
+  width: 100%;
+  display: block;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+
+  &[readonly], &[disabled],
+  &[readonly]:hover, &[disabled]:hover {
+    cursor: default;
+    background: #ebebeb;
+  }
+
+  .button-icon {
+
+  }
+
+  .button-text {
+    display: inline;
+    margin: 15px 0 0 5px;
+  }
+}
+
+.button-slim {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+$button_submit_color: #54bd7e;
+.button-submit {
+  background: $button_submit_color;
+  color: #fff;
+
+  &:hover, &:active {
+    background: darken($button_submit_color, 5%);
+    color: #fff;
+  }
+}

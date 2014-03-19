@@ -3,14 +3,15 @@ source 'https://rails-assets.org'
 ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.0.4'
 
 # Build JSON
-gem 'oj'
 gem 'rabl'
+gem 'oj'
 
 # API
 gem 'grape'
+gem 'grape-rabl'
 
 # Global settings
 gem 'settingslogic'
@@ -45,8 +46,7 @@ gem 'pundit'
 # Upload
 gem 'carrierwave'
 gem 'fog'
-gem 'mini_magick'
-gem 'rmagick'
+gem 'rmagick', require: 'RMagick'
 
 # Model helpers
 gem 'paranoia'
