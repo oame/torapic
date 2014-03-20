@@ -49,6 +49,7 @@ gem 'rmagick', require: 'RMagick'
 
 # Model helpers
 gem 'paranoia'
+gem 'validates_timeliness'
 
 # View helpers
 gem 'gravatar_image_tag'
@@ -89,7 +90,6 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'simplecov'
-  gem 'accept_values_for'
 
   # Auto-generate API documents
   gem 'grape-swagger'

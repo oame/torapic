@@ -16,7 +16,9 @@
     coffee:
       $ ->
         $('.datepicker').pickadate({
-          format: 'yyyy-mm-dd'
+          format: 'yyyy-mm-dd',
+          min: new Date(),
+          max: new Date(2014,7,14)
         })
 
         $('.timepicker').pickatime({
@@ -29,4 +31,4 @@
 
 
   .actions
-    = f.submit class: 'button button-submit'
+    = f.submit class: 'button button-submit', disable: true
