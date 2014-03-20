@@ -1,8 +1,32 @@
-= form_for @photo, html: { multipart: true }, class: "dropzone" do |f|
+= form_for @photo, html: { multipart: true } do |f|
   == render 'error_explanation', { record: @photo }
 
   .form-group
     = f.file_field :image
+
+  .form-group.datetimepicker
+    = f.hidden_field :expired_at
+
+    .datetimepicker
+      .input-group.date
+        input.form-control.datepicker type='text' placeholder='日付'
+      .input-group.time
+        input.form-control.timepicker type='text' placeholder='時間'
+
+    coffee:
+      $ ->
+        $('.datepicker').pickadate({
+          format: 'yyyy-mm-dd'
+        })
+
+        $('.timepicker').pickatime({
+          format: 'HH:i',
+          interval: 5
+        })
+
+        $('.datepicker, .timepicker').on 'change', ->
+          $('#photo_expired_at').val("#{$('.datepicker').val()} #{$('.timepicker').val()}")
+
 
   .actions
     = f.submit class: 'button button-submit'

@@ -7,9 +7,14 @@ class PhotosController < ApplicationController
 
   def index
     @photos = current_user.photos
+    @photos.each do |photo|
+      photo.destroy if photo.expired?
+    end
   end
 
   def show
+    @photo.destroy if @photo.expired?
+    @photo.view!
   end
 
   def new
@@ -31,9 +36,19 @@ class PhotosController < ApplicationController
   end
 
   def update
+    if @photo.update_attributes!(photo_params)
+      redirect_to @photo
+    else
+      render :edit
+    end
   end
 
   def destroy
+    if @photo.destroy
+      redirect_to photos_path
+    else
+      render :edit
+    end
   end
 
   private
@@ -47,6 +62,6 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:image)
+    params.require(:photo).permit(:image, :expired_at)
   end
 end

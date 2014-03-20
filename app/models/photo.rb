@@ -21,10 +21,25 @@ class Photo < ActiveRecord::Base
 
   belongs_to :user
 
+  validates :image, presence: true
+
   mount_uploader :image, ImageUploader
+
+  def expirable?
+    expired_at.present?
+  end
 
   # Return true if photo has been expired
   def expired?
-    expired_at < Time.now
+    if expirable?
+      expired_at < Time.now
+    else
+      false
+    end
+  end
+
+  def view!
+    self.view_count += 1
+    save
   end
 end

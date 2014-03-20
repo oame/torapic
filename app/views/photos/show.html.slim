@@ -4,12 +4,15 @@
     id: 'js-sidebar-toggle',
     style: "color: #{@photo.image_text_color}"
   ul.photo-info-list style="color: #{@photo.image_text_color}"
-    li.photo-info-item
-      i.photo-info-icon.fa.fa-eye
-      | 100
-    li.photo-info-item
-      i.photo-info-icon.fa.fa-clock-o
-      | 10m
+    li.photo-info-item title='View Count'
+      i.icon.fa.fa-eye
+      = @photo.view_count
+    li.photo-info-item title='Expired At'
+      i.icon.fa.fa-clock-o
+      - if @photo.expirable?
+        = distance_of_time_in_words(Time.now, @photo.expired_at)
+      - else
+        | 無期限
 
 .wrapper style="background-color: #{@photo.image_background_color}"
   .photo

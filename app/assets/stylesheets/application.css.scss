@@ -1,8 +1,12 @@
 /*
+ *= require pickadate/default
+ *= require pickadate/default.date
+ *= require pickadate/default.time
  *= require dropzone
  *= require components/torapic-icons
  *= require components/sidebar
  *= require components/buttons
+ *= require components/splittable
  *= require_self
 */
 
@@ -39,10 +43,35 @@ h2 {
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 2.3px;
+  margin-bottom: 15px;
+}
+
+ul.horizontal {
+  @extend %clearfix;
+
+  li {
+    float: left;
+    margin-left: 10px;
+  }
+
+  li:first-child {
+    margin-left: 0;
+  }
 }
 
 .form-group {
   margin: 10px 0;
+}
+
+.input-group {
+  input[type=text] {
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid rgba(0.0, 0.0, 0.0, 0.4);
+    margin: 0;
+    padding: 12px;
+    font-size: 17px;
+  }
 }
 
 .flash-message {
@@ -79,11 +108,21 @@ h2 {
   @include border-radius(3px);
 }
 
+.icon {
+  width: 15px;
+  text-align: center;
+  margin-right: 2px;
+}
+
 .columns {
   @include column-count(3);
 
-  &:hover .column:not(:hover) {
-    opacity: 0.7;
+  &.with-effects {
+    &:hover {
+      .column:not(:hover) {
+        opacity: 0.7;
+      }
+    }
   }
 
   .column {
@@ -93,11 +132,33 @@ h2 {
     @include box-shadow(0 1px 2px rgba(0.0, 0.0, 0.0, 0.2));
     @include transition(all .2s ease);
 
+    .inner {
+      padding: 15px;
+    }
+
+    a {
+      display: block;
+    }
+
     img {
       width: 100%;
       height: auto;
       vertical-align: bottom;
       @include transform(translateZ(0));
+    }
+
+    .column-caption {
+      display: block;
+      padding: 12px 10px 10px;
+      @extend %clearfix;
+
+      .column-caption-labels {
+        float: left;
+      }
+
+      .column-caption-controls {
+        float: right;
+      }
     }
   }
 

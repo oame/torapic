@@ -1,4 +1,9 @@
 @import "compass";
+@import "modules/mixins";
+
+.bootstrap-datetimepicker-widget {
+  width: 300px;
+}
 
 .sidebar-header {
   @extend %clearfix;
@@ -9,8 +14,14 @@
 }
 
 .photo-form {
-  margin-top: 200px;
+  width: 400px;
+  margin-top: 50px;
   padding: 40px;
+
+  @include bp-medium {
+    width: auto;
+    margin: 20px 20px 0;
+  }
 }
 
 .photo-info-list {
@@ -20,12 +31,6 @@
   .photo-info-item {
     margin: 5px 0 0 0;
     white-space: nowrap;
-
-    .photo-info-icon {
-      width: 15px;
-      text-align: center;
-      margin-right: 2px;
-    }
   }
 }
 

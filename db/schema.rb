@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140307040016) do
     t.string   "image"
     t.integer  "user_id"
     t.datetime "expired_at"
+    t.integer  "view_count",             default: 0
     t.string   "image_background_color"
     t.string   "image_text_color"
     t.string   "image_link_color"

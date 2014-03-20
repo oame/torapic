@@ -27,9 +27,8 @@ gem 'jquery-rails'
 gem 'ceaser-easing'
 gem 'font-awesome-rails'
 
-gem 'rails-assets-bootstrap-sass'
-gem 'rails-assets-backbone'
-gem 'rails-assets-moment'
+gem 'pickadate-rails'
+
 gem 'rails-assets-dropzone'
 gem 'rails-assets-jquery-waypoints'
 

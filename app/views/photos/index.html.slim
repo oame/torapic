@@ -1,9 +1,24 @@
 .wrapper
   .layout
     h2 Manage Photos
-    .columns.group
+    .group.columns.with-effects
       - @photos.each do |photo|
-        .column
-          = link_to photo do
-            = image_tag photo.image.thumb.url
-
+        - if photo.destroyed?
+          figure.column
+            = image_tag 'icon-404.png'
+        - else
+          figure.column
+            = link_to photo do
+              = image_tag photo.image.thumb.url
+              figcaption.column-caption
+                ul.horizontal.column-caption-labels
+                  li title='View Count'
+                    i.icon.fa.fa-eye
+                    = photo.view_count
+                  - if photo.expired_at.present?
+                    li title='Expired At'
+                      i.icon.fa.fa-clock-o
+                      = distance_of_time_in_words(Time.now, photo.expired_at)
+                ul.horizontal.column-caption-controls
+                  li
+                    = link_to '編集', edit_photo_path(photo)
