@@ -65,7 +65,6 @@ gem 'i18n_generators'
 # Ajax
 gem 'turbolinks'
 gem 'jquery-turbolinks'
-gem 'turbolinks_transitions'
 gem 'nprogress-rails'
 
 # Admin

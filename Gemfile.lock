@@ -405,8 +405,6 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.1)
       coffee-rails
-    turbolinks_transitions (0.0.5)
-      coffee-rails
     tzinfo (0.3.39)
     uglifier (2.5.0)
       execjs (>= 0.3.0)
@@ -493,7 +491,6 @@ DEPENDENCIES
   slim-rails
   sprockets (= 2.11.0)
   turbolinks
-  turbolinks_transitions
   uglifier
   validates_timeliness
   yard

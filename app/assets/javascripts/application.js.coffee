@@ -9,5 +9,4 @@
 #= require nprogress-turbolinks
 #= require components/sidebar
 #= require turbolinks
-#= require turbolinks_transitions
 #= require_self
