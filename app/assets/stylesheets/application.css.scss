@@ -3,10 +3,12 @@
  *= require pickadate/default.date
  *= require pickadate/default.time
  *= require dropzone
+ *= require nprogress
  *= require components/torapic-icons
  *= require components/sidebar
  *= require components/buttons
  *= require components/splittable
+ *= require components/custom-nprogress
  *= require_self
 */
 
@@ -45,6 +47,15 @@ a {
   }
 }
 
+h1 {
+  font-family: 'Novecento Sans W01 Bd', sans-serif;
+  font-size: 33px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
 h2 {
   font-family: 'Novecento Sans W01 Bd', sans-serif;
   font-size: 20px;
@@ -73,20 +84,21 @@ ul.horizontal {
   padding: 10px;
 }
 
-.form-group {
-  margin: 10px 0;
-}
-
 .input-group {
-  input[type=text] {
+  margin: 10px 0 0;
+
+  input[type=text], input[type=email], input[type=password] {
     width: 100%;
     display: inline-block;
     border: none;
     border-bottom: 1px solid rgba(0.0, 0.0, 0.0, 0.4);
-    margin: 0;
     padding: 12px;
     font-size: 17px;
   }
+}
+
+.actions {
+  margin: 10px 0;
 }
 
 .flash-message {

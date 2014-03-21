@@ -1,10 +1,10 @@
 = form_for @photo, html: { multipart: true } do |f|
   == render 'error_explanation', { record: @photo }
 
-  .form-group
+  .input-group
     = f.file_field :image
 
-  .form-group.datetimepicker
+  .input-group.datetimepicker
     = f.hidden_field :expired_at
 
     .datetimepicker
@@ -17,8 +17,7 @@
       $ ->
         $('.datepicker').pickadate({
           format: 'yyyy-mm-dd',
-          min: new Date(),
-          max: new Date(2014,7,14)
+          min: new Date()
         })
 
         $('.timepicker').pickatime({
@@ -28,6 +27,8 @@
 
         $('.datepicker, .timepicker').on 'change', ->
           $('#photo_expired_at').val("#{$('.datepicker').val()} #{$('.timepicker').val()}")
+
+        $('.timepicker').val($('#photo_expired_at').val().split(' ')[0])
 
 
   .actions

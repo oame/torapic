@@ -1,6 +1,9 @@
 .wrapper
   .layout
     h2 Manage Photos
+    - if @photos.blank?
+      .group
+        h1 Add your some images here!
     .group.columns.with-effects
       - @photos.each do |photo|
         - if photo.destroyed?

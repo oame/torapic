@@ -21,12 +21,12 @@ body {
   left: 20px;
   z-index: 1000;
 
-  &:hover {
+  &:hover, &.visible {
     opacity: 1;
   }
 
-  &.visible {
-    opacity: 1;
+  &.with-flash-message {
+    top: 75px;
   }
 
   @include transition(all 0.5s ceaser($easeOutQuad));

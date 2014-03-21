@@ -63,7 +63,10 @@ gem 'i18n-js'
 gem 'i18n_generators'
 
 # Ajax
-#gem 'rack-pjax'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'turbolinks_transitions'
+gem 'nprogress-rails'
 
 # Admin
 gem 'activeadmin', github: 'gregbell/active_admin'

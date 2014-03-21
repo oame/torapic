@@ -6,11 +6,13 @@ html
     = stylesheet_link_tag "application", media: "all"
     = stylesheet_link_tag controller.controller_name, media: "all"
 
+    = javascript_include_tag "//fast.fonts.net/jsapi/ae647d66-7237-4767-aaa6-a318929c5731.js"
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
     = javascript_include_tag "application"
 
     = csrf_meta_tags
   body
+    == render 'layouts/devise_messages'
     nav.sidebar
       .sidebar-header.visible
         - if content_for?(:header)
@@ -38,15 +40,11 @@ html
                 | Sign out
           - else
             li.sidebar-list-item
-              = link_to new_user_registration_path do
+              = link_to new_user_session_path do
                 i.sidebar-list-item-icon.fa.fa-sign-in
                 | Sign in
     .sidebar-overlay
     .scrollable-container
       .scrollable-region
-        .scrollable-content
-          == render 'layouts/devise_messages'
+        .scrollable-content#content
           == yield
-
-    / Lazy-load Scripts
-    = javascript_include_tag "//fast.fonts.net/jsapi/ae647d66-7237-4767-aaa6-a318929c5731.js"
