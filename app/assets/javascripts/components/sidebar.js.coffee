@@ -3,6 +3,10 @@ $ ->
   sidebar_toggle = $("#js-sidebar-toggle")
   sidebar_overlay = $(".sidebar-overlay")
 
+  fn_sidebar_open = ->
+    sidebar_header.removeClass("visible").css(display: 'none')
+    $("body").addClass("sidebar-open sidebar-visible")
+
   fn_sidebar_close = ->
     $("body").removeClass("sidebar-open")
     setTimeout ->
@@ -14,16 +18,12 @@ $ ->
     , 280
 
   $(".sidebar-scrollable-content a").on "click", (e)->
-    fn_sidebar_close
-
-  $(document).on 'page:fetch', ->
-    fn_sidebar_close
+    fn_sidebar_close()
 
   # Open sidebar
   sidebar_toggle.on "click", (e)->
     e.preventDefault()
-    sidebar_header.removeClass("visible").hide()
-    $("body").addClass("sidebar-open sidebar-visible")
+    fn_sidebar_open()
 
   # Close sidebar
   sidebar_overlay.on "click", ->

@@ -43,7 +43,7 @@ body {
 
 .sidebar-list {
   .sidebar-list-item:first-child {
-    margin-top: 22px;
+    margin-top: 20px;
   }
 
   .sidebar-list-item > a {
@@ -91,7 +91,7 @@ body {
   background: #fff;
 
   // Transition
-  @include transition(all 0.3s ceaser($easeInOutQuart));
+  @include transition(all 0.3s ceaser($easeOutQuart));
 }
 
 .scrollable-region {
