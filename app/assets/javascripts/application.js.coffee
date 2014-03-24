@@ -4,6 +4,7 @@
 #= require pickadate/picker
 #= require pickadate/picker.date
 #= require pickadate/picker.time
+#= require nouislider/jquery.nouislider
 #= require dropzone
 #= require jquery-waypoints/waypoints
 #= require nprogress

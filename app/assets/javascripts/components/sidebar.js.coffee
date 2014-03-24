@@ -21,12 +21,12 @@ $ ->
     fn_sidebar_close()
 
   # Open sidebar
-  sidebar_toggle.on "click", (e)->
+  sidebar_toggle.on "click touchstart", (e)->
     e.preventDefault()
     fn_sidebar_open()
 
   # Close sidebar
-  sidebar_overlay.on "click", ->
+  sidebar_overlay.on "click touchstart", ->
     fn_sidebar_close()
 
   $(".scrollable-content").on "scroll", ->

@@ -4,7 +4,7 @@
     - if @photos.blank?
       .group
         h1 Add your some images here!
-    .group.columns.with-effects
+    .group.columns.photos
       - @photos.each do |photo|
         - if photo.destroyed?
           figure.column

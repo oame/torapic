@@ -1,0 +1,5 @@
+@import "compass";
+
+.noUi-handle {
+  @include box-shadow(none !important);
+}

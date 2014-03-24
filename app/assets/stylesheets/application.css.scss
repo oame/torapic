@@ -1,13 +1,11 @@
 /*
- *= require pickadate/default
- *= require pickadate/default.date
- *= require pickadate/default.time
- *= require dropzone
  *= require nprogress
  *= require components/torapic-icons
  *= require components/sidebar
  *= require components/buttons
  *= require components/splittable
+ *= require components/range_slider
+ *= require components/custom-nouislider
  *= require components/custom-nprogress
  *= require_self
 */
@@ -92,13 +90,14 @@ ul.horizontal {
     display: inline-block;
     border: none;
     border-bottom: 1px solid rgba(0.0, 0.0, 0.0, 0.4);
+    @include border-radius(0);
     padding: 12px;
     font-size: 17px;
   }
 }
 
 .actions {
-  margin: 10px 0;
+  margin: 10px 0 0;
 }
 
 .flash-message {
@@ -150,6 +149,19 @@ ul.horizontal {
         opacity: 0.7;
       }
     }
+
+    .column {
+      .column-caption .column-caption-controls {
+        opacity: 0;
+        @include transition(all .2s ease);
+      }
+
+      &:hover {
+        .column-caption .column-caption-controls {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   .column {
@@ -158,12 +170,6 @@ ul.horizontal {
     opacity: 1;
     @include box-shadow(0 1px 2px rgba(0.0, 0.0, 0.0, 0.2));
     @include transition(all .2s ease);
-
-    &:hover {
-      .column-caption .column-caption-controls {
-        opacity: 1;
-      }
-    }
 
     .inner {
       padding: 15px;
@@ -191,8 +197,6 @@ ul.horizontal {
 
       .column-caption-controls {
         float: right;
-        opacity: 0;
-        @include transition(all .2s ease);
       }
     }
   }

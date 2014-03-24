@@ -1,13 +1,16 @@
 = form_for @photo, html: { multipart: true } do |f|
   == render 'error_explanation', { record: @photo }
 
-  .input-group
+  .input-group.image-drop-zone
     = f.file_field :image
 
-  .input-group.datetimepicker
-    = f.hidden_field :expired_at
-
-    .datetimepicker
+  = f.hidden_field :expired_at
+  .input-group
+    .range-slider
+      label.range-slider-label
+      .range-slider-ui
+  .input-group
+    .datetimepicker style='display: none'
       .input-group.date
         input.form-control.datepicker type='text' placeholder='日付'
       .input-group.time
@@ -15,6 +18,19 @@
 
     coffee:
       $ ->
+        $('.range-slider-ui').noUiSlider {
+          start: 40,
+          step: 5,
+          range: {
+            'min': 0,
+            'max': 100
+          }
+        }
+
+        $('.range-slider-ui').on 'slide', ->
+          $(this).parent().find(".range-slider-label").text($(this).val())
+          $('#photo_expired_at').val($(this).val())
+
         $('.datepicker').pickadate({
           format: 'yyyy-mm-dd',
           min: new Date()
@@ -30,6 +46,22 @@
 
         #$('.timepicker').val($('#photo_expired_at').val().split(' ')[0])
 
+        picker_type = 'slider'
+        $('#js-toggle-picker').on 'click', (e)->
+          e.preventDefault()
+          if picker_type == 'slider'
+            $(this).find('.button-icon').removeClass('fa-calendar-o').addClass('fa-clock-o')
+            $('.range-slider').hide()
+            $('.datetimepicker').show()
+            picker_type = 'date'
+          else
+            $(this).find('.button-icon').removeClass('fa-clock-o').addClass('fa-calendar-o')
+            $('.datetimepicker').hide()
+            $('.range-slider').show()
+            picker_type = 'slider'
 
   .actions
-    = f.submit class: 'button button-submit'
+    .button-group
+      = f.submit 'Upload', class: 'button button-green'
+      button#js-toggle-picker.button.button-darkgreen
+        i.button-icon.fa.fa-calendar-o

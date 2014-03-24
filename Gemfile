@@ -20,17 +20,18 @@ gem 'dotenv-rails'
 # Assets libralies
 gem 'uglifier'
 gem 'sass-rails'
-gem 'coffee-rails'
-gem 'slim-rails'
 gem 'compass-rails'
-gem 'jquery-rails'
 gem 'ceaser-easing'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'slim-rails'
 gem 'font-awesome-rails'
-
+gem 'modernizr-rails'
 gem 'pickadate-rails'
 
 gem 'rails-assets-dropzone'
 gem 'rails-assets-jquery-waypoints'
+gem 'rails-assets-nouislider'
 
 gem 'sprockets', '2.11.0' # Fucking shit!!!
 

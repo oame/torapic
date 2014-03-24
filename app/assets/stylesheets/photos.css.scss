@@ -1,18 +1,16 @@
+/*
+ *= require pickadate/default
+ *= require pickadate/default.date
+ *= require pickadate/default.time
+ *= require dropzone
+ *= require nouislider/jquery.nouislider
+ *= require components/custom-bootstrap-datetimepicker
+*/
+
 @import "compass";
 @import "modules/mixins";
 
-.bootstrap-datetimepicker-widget {
-  width: 300px;
-}
-
-.sidebar-header {
-  @extend %clearfix;
-
-  .logo {
-    float: left;
-  }
-}
-
+// Form
 .photo-form {
   width: 400px;
   margin-top: 50px;
@@ -21,6 +19,26 @@
   @include bp-medium {
     width: auto;
     margin: 20px 20px 0;
+  }
+
+  @include bp-small {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    @include border-radius(0);
+  }
+}
+
+.image-drop-zone {
+  padding: 20px;
+  background: #fafafa;
+}
+
+.sidebar-header {
+  @extend %clearfix;
+
+  .logo {
+    float: left;
   }
 }
 
