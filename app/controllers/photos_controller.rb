@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
   include Pundit
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[show]
   before_action :set_photo, only: %i(show edit update destroy)
   before_action :authorize_photo, except: %i(show edit update destroy)
 
