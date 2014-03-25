@@ -13,5 +13,5 @@
 #= require components/sidebar
 #= require turbolinks
 
-#= require photos
 #= require_self
+#= require photos
