@@ -15,7 +15,6 @@ html
 
     = csrf_meta_tags
   body
-    == render 'layouts/devise_messages'
     nav.sidebar
       .sidebar-header.visible
         - if content_for?(:header)
@@ -46,8 +45,11 @@ html
               = link_to new_user_session_path do
                 i.sidebar-list-item-icon.fa.fa-sign-in
                 | Sign in
+        = yield(:sidebar_content) if content_for?(:sidebar_content)
     .sidebar-overlay
     .scrollable-container
       .scrollable-region
         .scrollable-content
           == yield
+
+    == render 'layouts/devise_messages'

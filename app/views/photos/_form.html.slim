@@ -38,15 +38,19 @@
           start: 60,
           step: 5,
           range: {
-            'min': 5,
+            'min': 0,
             'max': 360
           }
         }
 
         $('.range-slider-ui').on 'slide', ->
           at = parseInt($(this).val())*60
-          $(this).parent().find(".range-slider-label").text(secondsToTime(at))
-          $('#photo_expired_at').val moment().add('seconds', at).format()
+          if at == 0
+            $(this).parent().find(".range-slider-label").text('Limitless')
+            $('#photo_expired_at').val ''
+          else
+            $(this).parent().find(".range-slider-label").text(secondsToTime(at))
+            $('#photo_expired_at').val moment().add('seconds', at).format()
 
         $('.datepicker').pickadate({
           format: 'yyyy-mm-dd',

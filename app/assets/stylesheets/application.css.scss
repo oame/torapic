@@ -108,8 +108,11 @@ ul.horizontal {
 
 .flash-message {
   @extend %clearfix;
-  padding: 15px 22px;
-  background: #fff;
+  padding: 23px 22px;
+  background: #FFF;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
 
   .flash-text {
     float: left;

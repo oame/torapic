@@ -14,6 +14,13 @@
       - else
         | 無期限
 
+- content_for(:sidebar_content) do
+  ul.sidebar-list
+    li.sidebar-list-item
+      = link_to user_signed_in?? :authenticated_root : :unauthenticated_root do
+        = gravatar_image_tag @photo.user.email, class: 'sidebar-list-item-icon'
+        = @photo.user.name
+
 .wrapper style="background-color: #{@photo.image_background_color}"
   .photo
     = image_tag @photo.image_url.to_s, class: "photo-image"
