@@ -32,10 +32,10 @@ test:
   socket: /tmp/mysql.sock
 
 production:
-  adapter: mysql2
   encoding: utf8
-  database: torapic
-  pool: 5
-  username: torapic
-  password: 5173102cf01e6f7c9176cd8724d8bc67
-  socket: /tmp/mysql.sock
+  adapter: postgresql
+  port: 5432
+  username: username
+  host: your_host
+  database: your_database
+  password: your_password

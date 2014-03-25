@@ -27,18 +27,15 @@ ja:
         reset_password_token: reset_password_token  #g
 
       photo:
-        deleted_at: deleted_at  #g
+        deleted_at: 削除日
         expired_at: 有効期限
-        image_content_type: image_content_type  #g
-        image_file_name: image_file_name  #g
-        image_file_size: image_file_size  #g
-        image_updated_at: image_updated_at  #g
         user: :activerecord.models.user
+        image: イメージ
 
       user:
         current_sign_in_at: current_sign_in_at  #g
         current_sign_in_ip: current_sign_in_ip  #g
-        deleted_at: deleted_at  #g
+        deleted_at: 削除日
         email: メールアドレス
         encrypted_password: パスワード
         password: パスワード

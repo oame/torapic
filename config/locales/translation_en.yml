@@ -34,6 +34,7 @@ en:
         image_file_size: Image file size
         image_updated_at: Image updated at
         user: :activerecord.models.user
+        image: Image
 
       user:
         current_sign_in_at: Current sign in at
