@@ -32,10 +32,10 @@ test:
   socket: /tmp/mysql.sock
 
 production:
-  encoding: utf8
+  encoding: unicode
   adapter: postgresql
+  username: tjvdiyxhpkabci
   port: 5432
-  username: username
-  host: your_host
-  database: your_database
-  password: your_password
+  host: ec2-54-225-101-4.compute-1.amazonaws.com
+  database: dc71njc6b5oivs
+  password: b5ipDINtlUJdz_ReeOb8GnTeum
