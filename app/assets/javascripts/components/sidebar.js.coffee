@@ -31,7 +31,7 @@ $ ->
     fn_sidebar_close()
 
   $(".scrollable-content").on "scroll", ->
-    if $(this).scrollTop() == 0
+    if $(this).scrollTop() <= 0
       sidebar_header.addClass("visible")
     else
       sidebar_header.removeClass("visible") if sidebar_header.hasClass("visible")
