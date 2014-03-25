@@ -163,7 +163,7 @@ module Colourable
   end
 
   def invoke
-    source_image = Magick::ImageList.new(image.path)
+    source_image = Magick::ImageList.new.from_blob(image.read)
     pixels = Pixels.new(source_image.resize(250, 250))
 
     color1 = pixels.edge_color
