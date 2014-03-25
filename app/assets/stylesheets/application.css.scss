@@ -11,8 +11,11 @@
 */
 
 /*
-font-family:'Ysobel W01';
 font-family:'Novecento Sans W01 Bd';
+font-family:'Novecento Sans W01 Lt';
+font-family:'Avenir Next W02 Thin';
+font-family:'AvenirNextLTW01-Regular';
+font-family:'AvenirNextLTW01-Medium';
 */
 
 @import "compass/reset";
@@ -83,14 +86,15 @@ ul.horizontal {
 }
 
 .input-group {
-  margin: 10px 0 0;
+  margin: 5px 0 0;
 
   input[type=text], input[type=email], input[type=password] {
     width: 100%;
     display: inline-block;
-    border: none;
-    border-bottom: 1px solid rgba(0.0, 0.0, 0.0, 0.4);
-    @include border-radius(0);
+    //border: none;
+    border: 1px solid #e1e1e1;
+    @include border-radius(2);
+    background: #fafafa;
     padding: 12px;
     font-size: 17px;
   }

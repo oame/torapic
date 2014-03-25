@@ -26,7 +26,8 @@ $ ->
     fn_sidebar_open()
 
   # Close sidebar
-  sidebar_overlay.on "click touchstart", ->
+  sidebar_overlay.on "click touchstart", (e)->
+    e.preventDefault()
     fn_sidebar_close()
 
   $(".scrollable-content").on "scroll", ->
