@@ -17,7 +17,7 @@
 - content_for(:sidebar_content) do
   ul.sidebar-list
     li.sidebar-list-item
-      = link_to user_signed_in?? :authenticated_root : :unauthenticated_root do
+      = link_to @photo.user do
         = gravatar_image_tag @photo.user.email, class: 'sidebar-list-item-icon'
         = @photo.user.name
 

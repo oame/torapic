@@ -64,8 +64,23 @@ h2 {
   font-size: 20px;
   font-weight: normal;
   text-transform: uppercase;
-  letter-spacing: 2.3px;
+  letter-spacing: 1px;
   margin-bottom: 15px;
+}
+
+h3 {
+  font-family: 'Novecento Sans W01 Bd', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  margin-bottom: 15px;
+}
+
+ul {
+  li {
+    margin-bottom: 5px;
+  }
 }
 
 ul.horizontal {

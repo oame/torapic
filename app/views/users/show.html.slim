@@ -1,11 +1,11 @@
 .wrapper
   .layout
-    h2 Manage Photos
-    - if @photos.blank?
+    h2 #{@user.name}'s Photos
+    - if @user.photos.blank?
       .group
         h1 Add your some images here!
     .group.columns.photos
-      - @photos.each do |photo|
+      - @user.photos.each do |photo|
         - if photo.destroyed?
           figure.column
             = image_tag 'icon-404.png'

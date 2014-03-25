@@ -37,6 +37,10 @@ html
                 i.sidebar-list-item-icon.fa.fa-picture-o
                 | Manage Photos
             li.sidebar-list-item
+              = link_to edit_user_registration_path do
+                i.sidebar-list-item-icon.fa.fa-gear
+                | Settings
+            li.sidebar-list-item
               = link_to destroy_user_session_path, method: :delete do
                 i.sidebar-list-item-icon.fa.fa-sign-out
                 | Sign out

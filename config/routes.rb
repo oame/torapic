@@ -1,4 +1,5 @@
 Torapic::Application.routes.draw do
+  get "users/show"
   # API
   mount API => '/'
 
@@ -14,13 +15,12 @@ Torapic::Application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
-  # Photo
-  resources :photos do
-    member do
-      get :download
-    end
-  end
+  resources :users
 
+  # Photo
+  resources :photos
+
+  # Root
   authenticated :user do
     root "photos#new", as: :authenticated_root
   end

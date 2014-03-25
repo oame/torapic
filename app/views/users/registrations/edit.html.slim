@@ -1,38 +1,31 @@
-h2 Edit #{resource_name.to_s.humanize}
+.wrapper
+  .layout
+    h2 Edit #{resource_name.to_s.humanize}
+    .group
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+        = devise_error_messages!
 
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  = devise_error_messages!
+        .input-group
+          = f.email_field :email, :autofocus => true, placeholder: 'Email'
 
-  div
-    = f.label :email
-    br/
-    = f.email_field :email, :autofocus => true
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          div
+            | Currently waiting confirmation for: #{resource.unconfirmed_email}
 
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .input-group
+          = f.password_field :password, :autocomplete => "off", placeholder: 'Password'
 
-  div
-    = f.label :password
-    i (leave blank if you don't want to change it)
-    br/
-    = f.password_field :password, :autocomplete => "off"
+        .input-group
+          = f.password_field :password_confirmation, placeholder: 'Password confirmation'
 
-  div
-    = f.label :password_confirmation
-    br/
-    = f.password_field :password_confirmation
+        .input-group
+          = f.password_field :current_password, placeholder: 'Current password'
 
-  div
-    = f.label :current_password
-    i (we need your current password to confirm your changes)
-    br/
-    = f.password_field :current_password
+        .actions
+          = f.submit class: 'button button-green'
 
-  div= f.submit "Update"
+      .group
+        h3 Cancel my account
 
-h3 Cancel my account
-
-p Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
-
-= link_to "Back", :back
+        p
+          = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button button-red'
