@@ -14,24 +14,34 @@
 // Form
 .photo-form {
   width: 400px;
-  margin-top: 50px;
+  display: block;
+  margin: -24px 0 0 20px;
   padding: 40px;
 
   @include bp-medium {
     width: auto;
-    margin: 20px 20px 0;
+    margin: 0 20px 0;
   }
 
   @include bp-small {
     width: 100%;
     margin: 0;
     padding: 20px;
-    @include border-radius(0);
+  }
+
+  .range-slider {
+    margin: 0 0 20px;
+
+    .range-slider-label {
+      margin: 0 -40px 20px;
+      padding: 15px 0 15px;
+      background: #fafafa;
+    }
   }
 }
 
 .image-drop-zone {
-  padding: 20px;
+  padding: 20px 0 15px;
 }
 
 .sidebar-header {
