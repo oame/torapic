@@ -32,7 +32,7 @@ test:
   socket: /tmp/mysql.sock
 
 production:
-  encoding: unicode
+  encoding: utf8
   adapter: postgresql
   username: tjvdiyxhpkabci
   port: 5432
