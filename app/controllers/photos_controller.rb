@@ -1,12 +1,14 @@
 class PhotosController < ApplicationController
   include Pundit
 
-  before_action :authenticate_user!, except: %i[show]
+  before_action :authenticate_user!, except: :show
   before_action :set_photo, only: %i(show edit update destroy)
-  before_action :authorize_photo, except: %i(show edit update destroy)
+
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
   def index
-    @photos = current_user.photos
+    @photos = policy_scope(current_user.photos)
     @photos.each do |photo|
       photo.destroy if photo.expired?
     end
@@ -19,6 +21,7 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+    authorize @photo
   end
 
   def create
@@ -52,10 +55,6 @@ class PhotosController < ApplicationController
   end
 
   private
-
-  def authorize_photo
-    authorize Photo
-  end
 
   def set_photo
     @photo = Photo.find(params[:id])
