@@ -23,6 +23,5 @@
                     i.icon.fa.fa-clock-o
                     = distance_of_time_in_words(Time.now, photo.expired_at)
               ul.horizontal.column-caption-controls
-                li = photo.user.name
                 - if photo.user == current_user
                   li = link_to '編集', edit_photo_path(photo)

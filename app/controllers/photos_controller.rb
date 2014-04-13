@@ -1,7 +1,5 @@
 class PhotosController < ApplicationController
-  include Pundit
-
-  before_action :authenticate_user!, except: :show
+  before_action :authenticate_user!, except: %i(show)
   before_action :set_photo, only: %i(show edit update destroy)
 
   after_action :verify_authorized, except: :index
@@ -15,6 +13,7 @@ class PhotosController < ApplicationController
   end
 
   def show
+    authorize @photo
     @photo.destroy if @photo.expired?
     @photo.view!
   end
@@ -26,6 +25,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
+    authorize @photo
     @photo.user_id = current_user.id
 
     if @photo.save
@@ -36,9 +36,11 @@ class PhotosController < ApplicationController
   end
 
   def edit
+    authorize @photo
   end
 
   def update
+    authorize @photo
     if @photo.update_attributes!(photo_params)
       redirect_to @photo
     else
@@ -47,6 +49,7 @@ class PhotosController < ApplicationController
   end
 
   def destroy
+    authorize @photo
     if @photo.destroy
       redirect_to photos_path
     else

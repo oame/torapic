@@ -3,9 +3,12 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  rescue_from Pundit::NotAuthorizedError, with: :permission_denied
+
   private
 
   def permission_denied
-    head 403
+    flash[:error] = "You are not authorized to perform this action."
+    redirect_to(root_path)
   end
 end

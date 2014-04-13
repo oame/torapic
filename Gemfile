@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
+
 ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.0'
 
-# Build JSON
+# optimize JSON
 gem 'rabl'
 gem 'oj'
 
@@ -44,7 +45,7 @@ gem 'omniauth-twitter'
 # Authorization
 gem 'pundit'
 
-# Upload
+# Upload helpers
 gem 'carrierwave'
 gem 'fog'
 gem 'rmagick', require: 'RMagick'
@@ -85,6 +86,8 @@ group :development, :test do
   gem 'letter_opener'
   gem 'annotate'
   gem 'yard'
+  gem 'spring'
+  gem 'meta_request'
 
   # Test
   gem 'rspec-rails'

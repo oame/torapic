@@ -21,6 +21,10 @@ class PhotoPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    update?
+  end
+
   def update?
     if record.user == user
       true
