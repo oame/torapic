@@ -155,6 +155,10 @@ ul.horizontal {
   padding: 15px;
   background: #fff;
   color: $font_color;
+  a {
+    @include link-colors($font_color);
+    text-decoration: underline;
+  }
 }
 
 .icon {
@@ -265,7 +269,6 @@ ul.horizontal {
   background-position: bottom;
   @include background-size(cover);
   color: #fff;
-  a { @include link-colors(#fff) }
   text-align: center;
 }
 
