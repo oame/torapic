@@ -2,10 +2,6 @@ Torapic::Application.routes.draw do
   # API
   mount API => '/'
 
-  # Admin
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-
   # User
   devise_for :users, :controllers => {
     :sessions      => "users/sessions",
@@ -14,8 +10,8 @@ Torapic::Application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
-  get "/auth/:provider/callback" => "auth#create"
-  delete "/auth/destroy/:provider" => 'auth#destroy', as: :destroy_connection
+  # get "/auth/:provider/callback" => "auth#create"
+  # delete "/auth/destroy/:provider" => 'auth#destroy', as: :destroy_connection
 
   resources :users
 

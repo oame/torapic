@@ -15,7 +15,7 @@ gem 'grape'
 gem 'grape-rabl'
 
 # Global settings
-gem 'settingslogic'
+gem 'figaro'
 gem 'dotenv-rails'
 
 # Assets libralies
@@ -71,7 +71,7 @@ gem 'jquery-turbolinks'
 gem 'nprogress-rails'
 
 # Admin
-gem 'activeadmin', github: 'gregbell/active_admin'
+# gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :production do
   gem 'pg'
