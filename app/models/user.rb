@@ -31,10 +31,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :omniauthable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :authentications
+  has_many :authentications, dependent: :destroy
   has_many :photos
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
+  validates_uniqueness_of :name, scope: :deleted_at
+  validates_format_of :name, :with => /\A[0-9A-Za-z_]+\z/
 
   # Omniauth
   def apply_omniauth(data)
