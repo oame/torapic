@@ -24,7 +24,6 @@ class PhotosController < ApplicationController
   end
 
   def create
-    raise
     @photo = Photo.new(photo_params)
     authorize @photo
     @photo.user_id = current_user.id

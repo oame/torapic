@@ -24,13 +24,8 @@
 class User < ActiveRecord::Base
   acts_as_paranoid
 
-  def to_param
-    name
-  end
-
-  def self.find(key)
-    find_by(name: key)
-  end
+  # /users/:name
+  def to_param; name ; end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -43,7 +38,8 @@ class User < ActiveRecord::Base
 
   # Omniauth
   def apply_omniauth(data)
-    authentications.build(:provider => data['provider'],
+    authentications.build(
+      :provider => data['provider'],
       :uid => data['uid'],
       :token => data['credentials'].token,
       :token_secret => data['credentials'].secret)

@@ -10,7 +10,7 @@ Torapic::Application.routes.draw do
     :omniauth_callbacks => "users/authentications"
   }
 
-  delete "/auth/:provider/destroy" => 'authentications#destroy', as: :destroy_connection
+  # delete "/auth/:provider" => 'users/authentications#destroy', as: :destroy_authentication
 
   get "/users/:name" => "users#show", as: :user
 

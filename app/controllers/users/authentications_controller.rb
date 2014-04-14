@@ -1,4 +1,4 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Users::AuthenticationsController < Devise::OmniauthCallbacksController
   def twitter
     omniauth_data = request.env['omniauth.auth']
     authentication = Authentication.where(provider: omniauth_data['provider'], uid: omniauth_data['uid']).first
@@ -38,5 +38,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     #   session["devise.omniauh"] = request.env["omniauth.auth"].except("extra")
     #   redirect_to new_user_registration_url
     # end
+  end
+
+  def destroy
+    raise
   end
 end
