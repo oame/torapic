@@ -25,7 +25,7 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
         flash[:notice] = "Logged in."
         sign_in_and_redirect User.find(user.id)
       else
-        session[:omniauth] = omniauth_data.except('extra')
+        session['devise.omniauth'] = omniauth_data.except('extra')
         redirect_to new_user_registration_path
       end
     end
