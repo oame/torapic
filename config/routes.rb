@@ -1,5 +1,4 @@
 Torapic::Application.routes.draw do
-  get "users/show"
   # API
   mount API => '/'
 
@@ -15,7 +14,12 @@ Torapic::Application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
+  get "/auth/:provider/callback" => "auth#create"
+  delete "/auth/destroy/:provider" => 'auth#destroy', as: :destroy_connection
+
   resources :users
+
+  get "users/show"
 
   # Photo
   resources :photos

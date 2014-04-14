@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :omniauthable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :auths
   has_many :photos
 
   validates :name, presence: true, uniqueness: true

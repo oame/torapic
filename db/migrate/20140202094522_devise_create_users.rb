@@ -1,6 +1,9 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
+      ## Project oriented attributes
+      t.string :name
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -31,9 +34,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       ## Omniauth
-      t.string :uid, null: false, default: ''
-      t.string :provider, null: false, default: ''
-      t.string :name
+      # t.string :uid, null: false, default: ''
+      # t.string :provider, null: false, default: ''
 
       t.datetime :deleted_at # Paranoia
 
