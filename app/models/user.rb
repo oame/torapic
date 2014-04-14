@@ -24,35 +24,28 @@
 class User < ActiveRecord::Base
   acts_as_paranoid
 
+  def to_param
+    name
+  end
+
+  def self.find(key)
+    find_by(name: key)
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :omniauthable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :auths
+  has_many :authentications
   has_many :photos
 
   validates :name, presence: true, uniqueness: true
 
   # Omniauth
-  def self.create_unique_string
-    SecureRandom.uuid
-  end
-
-  def self.create_unique_email
-    User.create_unique_string + "@example.com"
-  end
-
-  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
-    user = User.where(provider: auth.provider, uid: auth.uid).first
-    # unless user
-    #   user = User.create(
-    #     name:     auth.info.nickname,
-    #     provider: auth.provider,
-    #     uid:      auth.uid,
-    #     email:    User.create_unique_email,
-    #     password: Devise.friendly_token[0,20]
-    #   )
-    # end
-    # user
+  def apply_omniauth(data)
+    authentications.build(:provider => data['provider'],
+      :uid => data['uid'],
+      :token => data['credentials'].token,
+      :token_secret => data['credentials'].secret)
   end
 end

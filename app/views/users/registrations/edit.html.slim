@@ -21,10 +21,9 @@
         .input-group
           = f.password_field :current_password, placeholder: 'Current password'
 
-        - if current_user.auths.pluck(:provider).include? "twitter"
-          li
-            Twitterと接続済み
-            = link_to "接続解除", destroy_connection_path(:twitter), method: :delete, data:{confirm:"Sure？"}
+        - if current_user.authentications.pluck(:provider).include? "twitter"
+          p Twitterと接続済み
+            /= link_to "接続解除", destroy_connection_path(:twitter), method: :delete, data:{confirm:"Sure？"}
 
         .actions
           = f.submit class: 'button button-green'

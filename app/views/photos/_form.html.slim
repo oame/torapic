@@ -81,6 +81,9 @@
             $('.range-slider').show()
             picker_type = 'slider'
 
+        at = parseInt($('.range-slider-ui').val())*60
+        $('#photo_expired_at').val moment().add('seconds', at).format()
+
   .actions
     .button-group
       = f.submit 'Upload', class: 'button button-green'

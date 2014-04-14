@@ -7,15 +7,12 @@ Torapic::Application.routes.draw do
     :sessions      => "users/sessions",
     :registrations => "users/registrations",
     :passwords     => "users/passwords",
-    :omniauth_callbacks => "users/omniauth_callbacks"
+    :omniauth_callbacks => "users/authentications"
   }
 
-  # get "/auth/:provider/callback" => "auth#create"
-  # delete "/auth/destroy/:provider" => 'auth#destroy', as: :destroy_connection
+  delete "/auth/:provider/destroy" => 'authentications#destroy', as: :destroy_connection
 
-  resources :users
-
-  get "users/show"
+  get "/users/:name" => "users#show", as: :user
 
   # Photo
   resources :photos
