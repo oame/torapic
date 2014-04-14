@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
 
   has_many :photos
 
+  validates :name, presence: true, uniqueness: true
+
   # Omniauth
   def self.create_unique_string
     SecureRandom.uuid
