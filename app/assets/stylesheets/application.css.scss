@@ -1,5 +1,6 @@
 /*
  *= require nprogress
+ *= require components/flash_message
  *= require components/torapic-icons
  *= require components/sidebar
  *= require components/buttons
@@ -119,31 +120,6 @@ ul.horizontal {
 
 .actions {
   margin: 10px 0 0;
-}
-
-.flash-message {
-  @extend %clearfix;
-  padding: 23px 22px;
-  background: #FFF;
-  position: absolute;
-  width: 100%;
-  z-index: 1000;
-
-  .flash-text {
-    float: left;
-    font-size: 16px;
-  }
-
-  .flash-close {
-    width: 20px;
-    height: 20px;
-    float: right;
-    display: block;
-    padding: 2px 0 0 3.5px;
-    text-decoration: none;
-    border: 1px solid #000;
-    @include border-radius(10px);
-  }
 }
 
 .group {

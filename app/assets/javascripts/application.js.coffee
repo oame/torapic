@@ -9,6 +9,7 @@
 #= require jquery-waypoints/waypoints
 #= require nprogress
 #= require nprogress-turbolinks
+#= require components/flash_message
 #= require components/sidebar
 #= require turbolinks
 

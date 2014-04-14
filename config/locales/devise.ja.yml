@@ -1,9 +1,5 @@
 ja:
   devise:
-    helpers:
-      sign_up: サインアップ
-      sign_in: サインイン
-      sign_in_with: "%{provider} でサインイン"
     confirmations:
       confirmed: "アカウントが確認されました。ログインしています。"
       send_instructions: "アカウントの確認方法を数分以内にメールでご連絡します。"
@@ -49,6 +45,12 @@ ja:
       send_instructions: "アカウントのロックを解除する方法を数分以内にメールでご連絡します。"
       send_paranoid_instructions: "アカウントが存在する場合、ロックを解除する方法をメールでご連絡します。"
       unlocked: "アカウントのロックが解除されました。ログインしています。"
+    shared:
+      links:
+        sign_up: サインアップ
+        sign_in: サインイン
+        sign_in_with: "%{provider} でサインイン"
+        sign_out: サインアウト
   errors:
     messages:
       already_confirmed: "は既に登録済みです。ログインしてください"

@@ -134,12 +134,13 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
-      user:
-        create: サインアップ
-        submit: ユーザー登録
       photo:
         create: アップロード
         submit: 写真をアップロード
+        update: アップデート
+    label:
+      user:
+        remember_me: 私を覚えて！
   number:
     currency:
       format:
