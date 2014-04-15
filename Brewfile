@@ -1,0 +1,2 @@
+install mysql
+install redis

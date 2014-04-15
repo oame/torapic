@@ -75,6 +75,13 @@ gem 'nprogress-rails'
 # Database
 # gem 'sqlite3'
 
+# Background process
+gem 'sidekiq'
+
+# Process management
+gem 'thin'
+gem 'foreman'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
