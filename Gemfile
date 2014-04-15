@@ -73,14 +73,16 @@ gem 'nprogress-rails'
 # Admin
 # gem 'activeadmin', github: 'gregbell/active_admin'
 
-group :production do
-  gem 'pg'
+# Database
+gem 'sqlite3'
 
-  gem 'rails_12factor'
+group :production do
+  # gem 'pg'
+  # gem 'rails_12factor'
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
 
   gem 'quiet_assets'
   gem 'letter_opener'

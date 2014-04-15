@@ -10,11 +10,17 @@ test:
   database: db/torapic_test.sqlite3
   pool: 5
 
+# production:
+#   encoding: utf8
+#   adapter: postgresql
+#   username: tjvdiyxhpkabci
+#   port: 5432
+#   host: ec2-54-225-101-4.compute-1.amazonaws.com
+#   database: dc71njc6b5oivs
+#   password: b5ipDINtlUJdz_ReeOb8GnTeum
+
 production:
+  adapter: sqlite3
   encoding: utf8
-  adapter: postgresql
-  username: tjvdiyxhpkabci
-  port: 5432
-  host: ec2-54-225-101-4.compute-1.amazonaws.com
-  database: dc71njc6b5oivs
-  password: b5ipDINtlUJdz_ReeOb8GnTeum
+  database: db/torapic_production.sqlite3
+  pool: 5
