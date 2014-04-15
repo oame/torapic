@@ -199,8 +199,6 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.6.9)
-    i18n-js (2.1.2)
-      i18n
     i18n_generators (1.2.1)
       mechanize
       rails (>= 3.0.0)
@@ -434,7 +432,6 @@ DEPENDENCIES
   grape-swagger
   grape-swagger-ui
   gravatar_image_tag
-  i18n-js
   i18n_generators
   jquery-rails
   jquery-turbolinks

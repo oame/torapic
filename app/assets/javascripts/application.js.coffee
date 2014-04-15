@@ -1,6 +1,5 @@
 #= require jquery.turbolinks
 #= require jquery_ujs
-#= require i18n
 #= require moment
 #= require pickadate/picker
 #= require pickadate/picker.date

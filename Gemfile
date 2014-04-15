@@ -62,7 +62,6 @@ gem 'kaminari'
 
 # I18n
 gem 'rails-i18n'
-gem 'i18n-js'
 gem 'i18n_generators'
 
 # Ajax
