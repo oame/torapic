@@ -3,9 +3,7 @@ lock '3.2.0'
 
 set :application, 'torapic'
 set :repo_url, 'git@bitbucket.org:oame/torapic.git'
-
-# Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+set :branch, :master
 
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
