@@ -1,0 +1,93 @@
+upstream <%= fetch[:application] %> {
+  server unix:<%= current_path %>/tmp/sockets/unicorn.sock fail_timeout=0;
+}
+
+server {
+  listen 80;
+  server_name torapic.com;
+  client_max_body_size 20M;
+
+  root <%= current_path %>/public;
+
+  # ------
+  # Log
+  # ------
+
+  access_log /var/log/nginx/<%= application %>.log;
+  error_log /var/log/nginx/<%= application %>.err.log;
+
+  # ------
+  # Maintenance mode
+  # ------
+
+  set $maintenance false;
+  if (-e <%= shared_path %>/maintenance.txt ) {
+    set $maintenance true;
+  }
+
+  # Allow specific address
+  if ($remote_addr ~ \A(118.6.184.205|118.22.239.98)\z ) {
+    set $maintenance false;
+  }
+
+  # Redirect to maintenance page
+  if ($maintenance = true) {
+    rewrite ^ /maintenance.html redirect;
+  }
+
+  # Locate maintenance.html
+  location /maintenance.html {
+    root <%= current_path %>/lib/maintenance;
+    expires 0;
+  }
+
+  # ------
+  # Default routing
+  # ------
+
+  location / {
+    if (-f $request_filename) { break; }
+    proxy_set_header    X-Real-IP           $remote_addr;
+    proxy_set_header    X-Forwarded-Server  $host;
+    proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
+    proxy_pass http://<%= application %>;
+  }
+
+  # ------
+  # Cache assets
+  # ------
+
+  location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+    expires 1d;
+    add_header  Cache-Control public;
+    log_not_found off;
+  }
+
+  # ------
+  # Error pages
+  # ------
+
+  #error_page  404              /404.html;
+  error_page   500 502 503 504  /50x.html;
+  location = /50x.html {
+    root   html;
+  }
+
+  # ------
+  # Deny .ht
+  # ------
+  location ~ /\.ht {
+    deny  all;
+  }
+}
+
+server {
+  listen 80;
+  server_name www.torapic.com new.torapic.com;
+
+  # ------
+  # Redirect
+  # ------
+
+  # rewrite ^ http://torapic.com$request_uri permanent;
+}

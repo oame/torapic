@@ -72,19 +72,19 @@ gem 'nprogress-rails'
 # Admin
 # gem 'activeadmin', github: 'gregbell/active_admin'
 
-# Database
-# gem 'sqlite3'
-
 # Background process
 gem 'sidekiq'
 
-# Process management
-gem 'thin'
-gem 'foreman'
-
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  # gem 'pg'
+  # gem 'rails_12factor'
+  gem 'mysql2'
+  gem 'unicorn'
+
+  # Assets precompile
+  # gem 'libv8', '~> 3.11.8'
+  # gem 'execjs'
+  # gem 'therubyracer'
 end
 
 group :development, :test do
@@ -96,6 +96,7 @@ group :development, :test do
   gem 'yard'
   gem 'spring'
   gem 'meta_request'
+  gem 'foreman'
 
   # Test
   gem 'rspec-rails'
