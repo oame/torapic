@@ -25,4 +25,8 @@ production:
   pool: 25
   host: localhost
   database: torapic_production
+  username: torapic
   password: T1gkAXi5215G
+
+# create database torapic_production;
+# grant all on torapic_production.* to 'torapic'@'localhost' identified by 'T1gkAXi5215G';
