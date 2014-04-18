@@ -124,8 +124,6 @@ GEM
     domain_name (0.5.18)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (0.10.0)
-    dotenv-rails (0.10.0)
-      dotenv (= 0.10.0)
     equalizer (0.0.9)
     erubis (2.7.0)
     excon (0.33.0)
@@ -443,7 +441,6 @@ DEPENDENCIES
   compass-rails
   database_cleaner
   devise
-  dotenv-rails
   factory_girl_rails
   faker
   faker-japanese

@@ -16,7 +16,6 @@ gem 'grape-rabl'
 
 # Global settings
 gem 'figaro'
-gem 'dotenv-rails'
 
 # Assets libralies
 gem 'uglifier'
