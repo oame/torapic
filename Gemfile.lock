@@ -300,7 +300,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.0)
       sprockets-rails (~> 2.0)
-    rails-assets-dropzone (3.8.5)
     rails-assets-jquery (2.1.0)
     rails-assets-jquery-waypoints (2.0.4)
     rails-assets-nouislider (6.0.0)
@@ -473,7 +472,6 @@ DEPENDENCIES
   quiet_assets
   rabl
   rails (= 4.1.0)
-  rails-assets-dropzone
   rails-assets-jquery-waypoints
   rails-assets-nouislider
   rails-i18n

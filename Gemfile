@@ -31,7 +31,7 @@ gem 'modernizr-rails'
 gem 'momentjs-rails'
 
 gem 'pickadate-rails'
-gem 'rails-assets-dropzone'
+# gem 'rails-assets-dropzone'
 gem 'rails-assets-jquery-waypoints'
 gem 'rails-assets-nouislider'
 
