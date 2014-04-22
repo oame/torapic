@@ -1,4 +1,4 @@
-upstream <%= fetch[:application] %> {
+upstream <%= fetch(:application) %> {
   server unix:<%= current_path %>/tmp/sockets/unicorn.sock fail_timeout=0;
 }
 
@@ -13,8 +13,8 @@ server {
   # Log
   # ------
 
-  access_log /var/log/nginx/<%= application %>.log;
-  error_log /var/log/nginx/<%= application %>.err.log;
+  access_log /var/log/nginx/<%= fetch(:application) %>.log;
+  error_log /var/log/nginx/<%= fetch(:application) %>.err.log;
 
   # ------
   # Maintenance mode
@@ -50,7 +50,7 @@ server {
     proxy_set_header    X-Real-IP           $remote_addr;
     proxy_set_header    X-Forwarded-Server  $host;
     proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
-    proxy_pass http://<%= application %>;
+    proxy_pass http://<%= fetch(:application) %>;
   }
 
   # ------

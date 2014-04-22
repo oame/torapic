@@ -10,8 +10,10 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 # rbenv
 set :rbenv_type, :system
 set :rbenv_ruby, '2.1.1'
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+
+set :default_env, {
+  path: "#{fetch(:rbenv_path)}/shims:#{fetch(:rbenv_path)}/bin:$PATH"
+}
 
 # sidekiq
 # set :sidekiq_monit_conf_dir, '/etc/monit.d'

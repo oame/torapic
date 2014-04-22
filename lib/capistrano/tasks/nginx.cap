@@ -1,0 +1,30 @@
+require_relative '../helper_methods'
+include Capistrano::HelperMethods
+
+namespace :nginx do
+  desc "Copy nginx config to remote"
+  task :setup do
+    on roles(:app) do
+      container = "/tmp/nginx_#{fetch(:application)}_conf"
+      template("nginx_conf.erb", container)
+      execute :sudo, "mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled"
+      execute :sudo, :mv,
+        container,
+        "/etc/nginx/sites-available/#{fetch(:application)}.conf"
+      execute :sudo, "/usr/sbin/nxensite", fetch(:application)
+    end
+  end
+
+  # after "deploy:setup", "nginx:setup"
+  # after "deploy:setup", "nginx:restart"
+
+  %w[start stop restart reload].each do |command|
+    desc "#{command.capitalize} nginx"
+    task command do
+      on roles(:app) do
+        execute :sudo, "/etc/init.d/nginx", command
+      end
+    end
+    after "deploy:#{command}", "nginx:#{command}"
+  end
+end

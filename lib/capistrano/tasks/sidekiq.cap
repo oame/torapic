@@ -1,0 +1,27 @@
+require_relative '../helper_methods'
+include Capistrano::HelperMethods
+
+namespace :sidekiq do
+  desc "Copy sidekiq config to remote"
+  task :setup do
+    on roles(:app) do
+      template("nginx_conf.erb", "/tmp/nginx_#{fetch(:application)}_conf")
+      execute :sudo, "mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled"
+      execute :sudo, "mv /tmp/nginx_#{fetch(:application)}_conf /etc/nginx/sites-available/#{fetch(:application)}.conf"
+      execute :sudo, "ln -fs /etc/nginx/sites-available/#{fetch(:application)}.conf /etc/nginx/sites-enabled/#{fetch(:application)}.conf"
+    end
+  end
+
+  # after "deploy:setup", "nginx:setup"
+  # after "deploy:setup", "nginx:restart"
+
+  %w[start stop restart reload].each do |command|
+    desc "#{command.capitalize} nginx"
+    task command do
+      on roles(:app) do
+        execute :sudo, "/etc/init.d/nginx", command
+      end
+    end
+    after "deploy:#{command}", "nginx:#{command}"
+  end
+end
