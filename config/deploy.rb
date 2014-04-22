@@ -14,7 +14,7 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 # sidekiq
-set :sidekiq_monit_conf_dir, '/etc/monit.d'
+# set :sidekiq_monit_conf_dir, '/etc/monit.d'
 
 # Default value for :format is :pretty
 # set :format, :pretty
