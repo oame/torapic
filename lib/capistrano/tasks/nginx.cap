@@ -4,7 +4,7 @@ include Capistrano::HelperMethods
 namespace :load do
   task :defaults do
     set :nginx_tmp_container, -> { "/tmp/nginx_#{fetch(:application)}_conf" }
-    set :nginx_config, -> { fetch(:application) }
+    set :nginx_config, -> { "#{fetch(:application)}.conf" }
   end
 end
 
@@ -16,7 +16,7 @@ namespace :nginx do
       execute :sudo, "mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled"
       execute :sudo, :mv,
         fetch(:nginx_tmp_container),
-        "/etc/nginx/sites-available/#{fetch(:nginx_config)}.conf"
+        "/etc/nginx/sites-available/#{fetch(:nginx_config)}"
       execute :sudo, "/usr/sbin/nxensite", fetch(:nginx_config)
     end
   end

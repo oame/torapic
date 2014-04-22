@@ -1,7 +1,7 @@
 description "Torapic, sidekiq"
 
-start on startup
-stop on shutdown
+start on runlevel [2345]
+stop on runlevel [016]
 
 script
   APP_ROOT=<%= current_path %>
