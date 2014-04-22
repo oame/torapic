@@ -254,6 +254,7 @@ GEM
     net-scp (1.2.0)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
+    newrelic_rpm (3.7.3.204)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     nprogress-rails (0.1.2.3)
@@ -463,6 +464,7 @@ DEPENDENCIES
   modernizr-rails
   momentjs-rails
   mysql2
+  newrelic_rpm
   nprogress-rails
   oj
   omniauth

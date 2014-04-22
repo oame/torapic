@@ -3,6 +3,7 @@ source 'https://rails-assets.org'
 
 ruby '2.1.1'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 
@@ -72,7 +73,11 @@ gem 'nprogress-rails'
 # gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Background process
+gem 'foreman'
 gem 'sidekiq'
+
+# Analytics
+gem 'newrelic_rpm'
 
 group :production do
   # gem 'pg'
@@ -95,7 +100,6 @@ group :development, :test do
   gem 'yard'
   gem 'spring'
   gem 'meta_request'
-  gem 'foreman'
 
   # Test
   gem 'rspec-rails'
