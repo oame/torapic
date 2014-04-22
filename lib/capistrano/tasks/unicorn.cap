@@ -8,7 +8,6 @@ namespace :load do
   end
 end
 
-# Unicorn tasks
 namespace :unicorn do
   desc "Setup Unicorn init script"
   task :setup do
@@ -28,6 +27,5 @@ namespace :unicorn do
         execute :sudo, "/etc/init.d/#{fetch(:unicorn_config)}", command
       end
     end
-    # after "deploy:#{command}", "unicorn:#{command}"
   end
 end

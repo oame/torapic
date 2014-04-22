@@ -8,7 +8,6 @@ namespace :load do
   end
 end
 
-# Unicorn tasks
 namespace :sidekiq do
   desc "Setup Unicorn init script"
   task :setup do

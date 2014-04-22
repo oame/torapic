@@ -21,9 +21,6 @@ namespace :nginx do
     end
   end
 
-  # after "deploy:setup", "nginx:setup"
-  # after "deploy:setup", "nginx:restart"
-
   %w[start stop restart reload].each do |command|
     desc "#{command.capitalize} nginx"
     task command do
@@ -31,6 +28,5 @@ namespace :nginx do
         execute :sudo, :service, :nginx, command
       end
     end
-    # after "deploy:#{command}", "nginx:#{command}"
   end
 end
