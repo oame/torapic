@@ -1,27 +1,32 @@
 require_relative '../helper_methods'
 include Capistrano::HelperMethods
 
+namespace :load do
+  task :defaults do
+    set :sidekiq_tmp, -> { "/tmp/#{fetch(:application)}_sidekiq" }
+    set :sidekiq_config, -> { "#{fetch(:application)}-sidekiq" }
+  end
+end
+
+# Unicorn tasks
 namespace :sidekiq do
-  desc "Copy sidekiq config to remote"
+  desc "Setup Unicorn init script"
   task :setup do
     on roles(:app) do
-      template("nginx_conf.erb", "/tmp/nginx_#{fetch(:application)}_conf")
-      execute :sudo, "mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled"
-      execute :sudo, "mv /tmp/nginx_#{fetch(:application)}_conf /etc/nginx/sites-available/#{fetch(:application)}.conf"
-      execute :sudo, "ln -fs /etc/nginx/sites-available/#{fetch(:application)}.conf /etc/nginx/sites-enabled/#{fetch(:application)}.conf"
+      template "upstart_sidekiq.erb", fetch(:sidekiq_tmp)
+      execute :sudo, "mv #{fetch(:sidekiq_tmp)} /etc/init/#{fetch(:sidekiq_config)}.conf"
+      execute :sudo, :chmod, "+x /etc/init/#{fetch(:sidekiq_config)}.conf"
+      execute :sudo, :chown, "root:root /etc/init/#{fetch(:sidekiq_config)}.conf"
+      execute :sudo, :chmod, "644 /etc/init/#{fetch(:sidekiq_config)}.conf"
     end
   end
 
-  # after "deploy:setup", "nginx:setup"
-  # after "deploy:setup", "nginx:restart"
-
-  %w[start stop restart reload].each do |command|
-    desc "#{command.capitalize} nginx"
+  %w[start stop restart].each do |command|
+    desc "#{command.capitalize} sidekiq"
     task command do
       on roles(:app) do
-        execute :sudo, "/etc/init.d/nginx", command
+        execute :sudo, :initctl, command, fetch(:sidekiq_config)
       end
     end
-    after "deploy:#{command}", "nginx:#{command}"
   end
 end

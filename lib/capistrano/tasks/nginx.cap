@@ -1,17 +1,23 @@
 require_relative '../helper_methods'
 include Capistrano::HelperMethods
 
+namespace :load do
+  task :defaults do
+    set :nginx_tmp_container, -> { "/tmp/nginx_#{fetch(:application)}_conf" }
+    set :nginx_config, -> { fetch(:application) }
+  end
+end
+
 namespace :nginx do
   desc "Copy nginx config to remote"
   task :setup do
     on roles(:app) do
-      container = "/tmp/nginx_#{fetch(:application)}_conf"
-      template("nginx_conf.erb", container)
+      template("nginx_conf.erb", fetch(:nginx_tmp_container))
       execute :sudo, "mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled"
       execute :sudo, :mv,
-        container,
-        "/etc/nginx/sites-available/#{fetch(:application)}.conf"
-      execute :sudo, "/usr/sbin/nxensite", fetch(:application)
+        fetch(:nginx_tmp_container),
+        "/etc/nginx/sites-available/#{fetch(:nginx_config)}.conf"
+      execute :sudo, "/usr/sbin/nxensite", fetch(:nginx_config)
     end
   end
 
@@ -22,9 +28,9 @@ namespace :nginx do
     desc "#{command.capitalize} nginx"
     task command do
       on roles(:app) do
-        execute :sudo, "/etc/init.d/nginx", command
+        execute :sudo, :service, :nginx, command
       end
     end
-    after "deploy:#{command}", "nginx:#{command}"
+    # after "deploy:#{command}", "nginx:#{command}"
   end
 end

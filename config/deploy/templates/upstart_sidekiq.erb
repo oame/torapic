@@ -1,13 +1,13 @@
 description "Torapic, sidekiq"
 
-start on runlevel [2345]
-stop on runlevel [016]
+start on startup
+stop on shutdown
 
 script
   APP_ROOT=<%= current_path %>
-  PATH=<%= rbenv_path %>/shims:<%= rbenv_path %>/bin:$PATH
+  PATH=<%= fetch(:rbenv_path) %>/shims:<%= fetch(:rbenv_path) %>/bin:$PATH
 
-  cd $APP_ROOT && RAILS_ENV=<%= rails_env %> bundle exec sidekiq -i 0 -e <%= rails_env %> -C $APP_ROOT/config/sidekiq.yml >> /tmp/torapic_sidekiq.log 2>&1
+  cd $APP_ROOT && RAILS_ENV=<%= fetch(:rails_env) %> bundle exec sidekiq -i 0 -e <%= fetch(:rails_env) %> -C $APP_ROOT/config/sidekiq.yml
 end script
 
 respawn

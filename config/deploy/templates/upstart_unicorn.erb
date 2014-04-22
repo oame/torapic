@@ -1,12 +1,13 @@
-description "Rails Application"
+description "torapic - unicorn"
 
-start on runlevel [2345]
+start on startup
+stop on shutdown
 
 script
   APP_ROOT=<%= current_path %>
-  PATH=<%= rbenv_path %>/shims:<%= rbenv_path %>/bin:$PATH
+  PATH=<%= fetch(:rbenv_path) %>/shims:<%= fetch(:rbenv_path) %>/bin:$PATH
 
-  cd $APP_ROOT && bundle exec unicorn_rails -c $APP_ROOT/config/unicorn.rb -E <%= rails_env %> >> /tmp/torapic_unicorn.log 2>&1
+  cd $APP_ROOT && bundle exec unicorn_rails -c $APP_ROOT/config/unicorn.rb -E <%= fetch(:rails_env) %>
 end script
 
 respawn
