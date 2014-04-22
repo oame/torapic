@@ -13,8 +13,8 @@ timeout 180
 # rails_env = ENV['RAILS_ENV'] || 'production'
 
 # log
-stderr_path "#{app_path}/log/unicorn.log"
-stdout_path "#{app_path}/log/unicorn.log"
+stderr_path "#{shared_path}/log/unicorn.log"
+stdout_path "#{shared_path}/log/unicorn.log"
 
 # no downtime
 preload_app true
