@@ -25,7 +25,7 @@ namespace :unicorn do
     desc "#{command.capitalize} unicorn"
     task command do
       on roles(:app) do
-        execute :sudo, :initctl, command, fetch(:unicorn_config)
+        execute :sudo, "/etc/init.d/#{fetch(:unicorn_config)}", command
       end
     end
     # after "deploy:#{command}", "unicorn:#{command}"

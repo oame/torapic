@@ -1,8 +1,8 @@
 application = 'torapic'
 shared_path = "/var/www/#{application}/shared"
 
-listen "#{shared_path}/sockets/unicorn_#{application}.sock"
-pid "#{shared_path}/pids/unicorn_#{application}.pid"
+listen "#{shared_path}/tmp/sockets/unicorn_#{application}.sock"
+pid "#{shared_path}/tmp/pids/unicorn_#{application}.pid"
 
 stderr_path "#{shared_path}/log/unicorn.stderr.log"
 stdout_path "#{shared_path}/log/unicorn.stdout.log"
