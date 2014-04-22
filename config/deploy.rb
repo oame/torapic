@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.2.0'
+lock '3.2.1'
 
 set :application, 'torapic'
 set :repo_url, 'git@bitbucket.org:oame/torapic.git'
