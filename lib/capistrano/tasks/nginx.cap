@@ -25,7 +25,7 @@ namespace :nginx do
     desc "#{command.capitalize} nginx"
     task command do
       on roles(:app) do
-        execute :sudo, :service, :nginx, command
+        execute :sudo, "/sbin/service", :nginx, command
       end
     end
   end
