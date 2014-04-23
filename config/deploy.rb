@@ -39,8 +39,8 @@ set :default_env, {
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-# after :publishing, "foreman:export"
-# after :publishing, "foreman:restart"
+after :deploy, "foreman:export"
+after :deploy, "foreman:restart"
 
 namespace :deploy do
 
