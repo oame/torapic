@@ -10,7 +10,7 @@ end
 
 namespace :nginx do
   desc "Copy nginx config to remote"
-  task :setup do
+  task :export do
     on roles(:app) do
       template("nginx_conf.erb", fetch(:nginx_tmp_container))
       execute :sudo, "mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled"

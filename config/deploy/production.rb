@@ -13,11 +13,7 @@ server 'deployer@udon.oameya.com',
 
 set :domain, "torapic.com"
 
-# set :stage, :production
 set :rails_env, "production"
-
-SSHKit.config.command_map[:rake]  = "bundle exec rake" #8
-SSHKit.config.command_map[:rails] = "bundle exec rails"
 
 # Extended Server Syntax
 # ======================

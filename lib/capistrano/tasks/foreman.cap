@@ -36,7 +36,7 @@ namespace :foreman do
   desc "Restart the application services"
   task :restart do
     on roles(:app) do
-      execute :sudo, "/sbin/start #{fetch(:application)} || sudo /sbin/restart #{fetch(:application)}"
+      execute :sudo, "/sbin/restart #{fetch(:application)}"
     end
   end
 
