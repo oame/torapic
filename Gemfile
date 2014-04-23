@@ -74,6 +74,7 @@ gem 'nprogress-rails'
 
 # Background process
 gem 'foreman'
+gem 'foreman-monit', github: 'capita/foreman-monit'
 gem 'sidekiq'
 
 # Analytics
@@ -130,5 +131,4 @@ group :development, :test do
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rbenv', require: false
-  # gem 'capistrano-sidekiq', require: false
 end

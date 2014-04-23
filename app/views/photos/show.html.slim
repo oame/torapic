@@ -23,13 +23,8 @@
 
 .wrapper style="background-color: #{@photo.image_background_color}"
   .photo
-    = image_tag @photo.image_url.to_s, class: "photo-image"
-    coffee:
-      $(".photo-image").on "click", ->
-        if $(this).hasClass("zoomed-in")
-          $(this).removeClass("zoomed-in")
-        else
-          $(this).addClass("zoomed-in")
+    = image_tag @photo.image_url(:medium), class: "photo-image",
+      data: {original: @photo.image_url, medium: @photo.image_url(:medium)}
 
 css:
   html, body {
