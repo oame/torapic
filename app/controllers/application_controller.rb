@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :permission_denied
 
+  unless Rails.application.config.consider_all_requests_local
+    rescue_from Exception, with: lambda { |exception| render_error 500, exception }
+  end
+
+  rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound, with: lambda { |exception| render_error 404, exception }
+
   protected
 
   def configure_permitted_parameters
@@ -17,8 +23,14 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def permission_denied
-    flash[:error] = "You are not authorized to perform this action."
-    redirect_to(root_path)
+  def permission_denied(exception)
+    render_error 403, exception
+  end
+
+  def render_error(status, exception)
+    respond_to do |format|
+      format.html { render template: "errors/error_#{status}", layout: 'layouts/application', status: status }
+      format.all { render nothing: true, status: status }
+    end
   end
 end

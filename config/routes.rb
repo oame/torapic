@@ -25,4 +25,9 @@ Torapic::Application.routes.draw do
   unauthenticated do
     root "static_pages#index", as: :unauthenticated_root
   end
+
+  # Error
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
+  end
 end
