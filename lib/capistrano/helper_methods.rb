@@ -12,4 +12,8 @@ module Capistrano::HelperMethods
   def put_file(filepath, target, args)
     put(File.read(filepath), target, args)
   end
+
+  def external_ip
+    `curl ip.appspot.com`.strip
+  end
 end

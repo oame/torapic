@@ -37,7 +37,7 @@ server {
   }
 
   # Allow specific address
-  if ($remote_addr ~ \A(119.72.197.158|180.12.106.238)\z ) {
+  if ($remote_addr ~ \A(<%= external_ip %>)\z ) {
     set $maintenance false;
   }
 
