@@ -1,3 +1,11 @@
+- content_for(:meta_tag) do
+  meta name="twitter:card" content="photo"
+  /meta name="twitter:site" content=""
+  /meta name="twitter:creator" content="@o_ame"
+  / meta name="twitter:title" content=""
+  meta name="twitter:image:src" content=@photo.image_url(:medium)
+  meta name="twitter:domain" content=photo_url(@photo)
+
 - content_for(:header) do
   = link_to '', user_root_path,
     class: 'logo icon-torapic-logo-square',
