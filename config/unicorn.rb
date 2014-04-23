@@ -1,36 +1,25 @@
+RAILS_ROOT = File.expand_path("../..", __FILE__)
+
 application = 'torapic'
-shared_path = "/var/www/#{application}/shared"
 
-listen "#{shared_path}/tmp/sockets/unicorn_#{application}.sock"
-pid "#{shared_path}/tmp/pids/unicorn_#{application}.pid"
+listen "#{RAILS_ROOT}/tmp/sockets/unicorn.sock"
+pid "#{RAILS_ROOT}/tmp/pids/unicorn.pid"
 
-stderr_path "#{shared_path}/log/unicorn.stderr.log"
-stdout_path "#{shared_path}/log/unicorn.stdout.log"
+stderr_path "#{RAILS_ROOT}/log/unicorn.log"
+stdout_path "#{RAILS_ROOT}/log/unicorn.log"
 
 worker_processes 2
 timeout 180
-
-# rails_env = ENV['RAILS_ENV'] || 'production'
-
-# log
-stderr_path "#{shared_path}/log/unicorn.log"
-stdout_path "#{shared_path}/log/unicorn.log"
 
 # no downtime
 preload_app true
 
 before_fork do |server, worker|
-
-  if defined?(ActiveRecord::Base)
-    ActiveRecord::Base.connection.disconnect!
-  end
-
-  old_pid = "/tmp/unicorn.pid.oldbin"
+  old_pid = "#{RAILS_ROOT}/log/unicorn.pid.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
     rescue Errno::ENOENT, Errno::ESRCH
-      # someone else did our job for us
     end
   end
 end

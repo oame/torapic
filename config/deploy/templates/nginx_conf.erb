@@ -1,5 +1,5 @@
 upstream <%= fetch(:application) %> {
-  server unix:<%= shared_path %>/tmp/sockets/unicorn.sock fail_timeout=0;
+  server unix:<%= current_path %>/tmp/sockets/unicorn.sock fail_timeout=0;
 }
 
 server {
@@ -13,8 +13,8 @@ server {
   # Log
   # ------
 
-  access_log /var/log/nginx/<%= fetch(:application) %>.log;
-  error_log /var/log/nginx/<%= fetch(:application) %>.err.log;
+  access_log <%= shared_path %>/log/nginx.log;
+  error_log <%= shared_path %>/log/nginx.err.log;
 
   # ------
   # Maintenance mode
