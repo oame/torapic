@@ -13,8 +13,8 @@ namespace :foreman do
   task :export do
     on roles(:app) do
       within release_path do
-        execute :sudo, "mkdir -p #{shared_path}/log #{shared_path}/tmp/pids"
-        execute :sudo, :bundle, :exec, "foreman export upstart /etc/init -f ./Procfile.production -a #{fetch(:application)} -u deployer -l #{shared_path}/log"
+        execute :sudo, "mkdir -p #{shared_path}/log/foreman #{shared_path}/tmp/pids"
+        execute :sudo, :bundle, :exec, "foreman export upstart /etc/init -f ./Procfile.production -a #{fetch(:application)} -u deployer -l #{shared_path}/log/foreman"
       end
     end
   end

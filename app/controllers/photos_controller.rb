@@ -7,6 +7,7 @@ class PhotosController < ApplicationController
 
   def index
     @photos = policy_scope(current_user.photos)
+
     @photos.each do |photo|
       photo.destroy if photo.expired?
     end
@@ -14,8 +15,8 @@ class PhotosController < ApplicationController
 
   def show
     authorize @photo
+
     @photo.destroy if @photo.expired?
-    # @photo.view!
     ViewCountWorker.perform_async @photo.id
   end
 
