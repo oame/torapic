@@ -2,7 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "#{model.class.to_s.underscore}/#{DateTime.now.to_f}.#{rand(999)}.#{rand(999)}"
   end
 
   version :thumb do
