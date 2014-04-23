@@ -14,7 +14,6 @@ SSHKit.config.command_map[:rails] = "bundle exec rails"
 # rbenv
 set :rbenv_type, :system
 set :rbenv_ruby, '2.1.1'
-
 set :default_env, {
   path: "#{fetch(:rbenv_path)}/shims:#{fetch(:rbenv_path)}/bin:$PATH"
 }
@@ -24,9 +23,6 @@ set :default_env, {
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-
-# Default value for keep_releases is 5
-# set :keep_releases, 5
 
 after :deploy, "nginx:export"
 after :deploy, "nginx:reload"
