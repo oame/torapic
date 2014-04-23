@@ -4,4 +4,12 @@ module Capistrano::HelperMethods
     render = ERB.new(File.read(render_path)).result(binding)
     upload! StringIO.new(render), target
   end
+
+  def put(data, target, args)
+    upload! StringIO.new(data), target, args
+  end
+
+  def put_file(filepath, target, args)
+    put(File.read(filepath), target, args)
+  end
 end

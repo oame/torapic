@@ -32,23 +32,23 @@ server {
   # ------
 
   set $maintenance false;
-  if (-e <%= shared_path %>/maintenance.txt ) {
+  if (-e <%= shared_path %>/tmp/maintenance.html ) {
     set $maintenance true;
   }
 
   # Allow specific address
-  if ($remote_addr ~ \A(118.6.184.205|118.22.239.98)\z ) {
+  if ($remote_addr ~ \A(119.72.197.158|180.12.106.238)\z ) {
     set $maintenance false;
   }
 
   # Redirect to maintenance page
   if ($maintenance = true) {
-    rewrite ^ /maintenance.html redirect;
+    rewrite ^ /maintenance.html last;
   }
 
   # Locate maintenance.html
   location /maintenance.html {
-    root <%= current_path %>/lib/maintenance;
+    root <%= shared_path %>/tmp/;
     expires 0;
   }
 
