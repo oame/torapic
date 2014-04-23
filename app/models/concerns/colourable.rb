@@ -127,6 +127,7 @@ module Colourable
       merged_image = Magick::ImageList.new
       merged_image = merged_image.push(crop_top).push(crop_right).push(crop_bottom).push(crop_left).append(true)
       merged_pixels = Pixels.new(merged_image)
+      merged_image.destroy!
 
       @edge_color ||= merged_pixels.dominant_color
     end
@@ -165,6 +166,7 @@ module Colourable
   def invoke
     source_image = Magick::ImageList.new.from_blob(image.read)
     pixels = Pixels.new(source_image.resize(250, 250))
+    source_image.destroy!
 
     color1 = pixels.edge_color
 
