@@ -1,8 +1,10 @@
+require 'digest/sha1'
+
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   def store_dir
-    "#{model.class.to_s.underscore}/#{DateTime.now.to_f}.#{rand(999)}.#{rand(999)}"
+    "uploads/#{model.class.to_s.underscore}/#{model.salt}"
   end
 
   version :thumb do

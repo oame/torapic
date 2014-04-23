@@ -26,6 +26,12 @@ class Photo < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  before_create :set_salt
+
+  def set_salt
+    self.salt = Digest::SHA1.hexdigest("#{rand(999)}.#{rand(999)}.#{image.filename}.#{image.content_type}")
+  end
+
   def expirable?
     expired_at.present?
   end
