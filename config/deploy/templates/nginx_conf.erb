@@ -46,10 +46,10 @@ server {
   # ------
 
   location / {
-    if (-f $request_filename) { break; }
-    proxy_set_header    X-Real-IP           $remote_addr;
-    proxy_set_header    X-Forwarded-Server  $host;
-    proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Client-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $remote_addr;
     proxy_pass http://<%= fetch(:application) %>;
   }
 
@@ -57,28 +57,25 @@ server {
   # Cache assets
   # ------
 
-  location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+  # location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+  #   expires 1d;
+  #   add_header  Cache-Control public;
+  #   log_not_found off;
+  # }
+
+  location ~ ^/assets/ {
     expires 1d;
-    add_header  Cache-Control public;
-    log_not_found off;
+    add_header Cache-Control public;
+
+    add_header ETag "";
+    break;
   }
 
   # ------
   # Error pages
   # ------
 
-  #error_page  404              /404.html;
-  error_page   500 502 503 504  /50x.html;
-  location = /50x.html {
-    root   html;
-  }
-
-  # ------
-  # Deny .ht
-  # ------
-  location ~ /\.ht {
-    deny  all;
-  }
+  error_page 500 502 503 504 /500.html;
 }
 
 server {
@@ -89,5 +86,5 @@ server {
   # Redirect
   # ------
 
-  # rewrite ^ http://torapic.com$request_uri permanent;
+  rewrite ^ http://torapic.com$request_uri permanent;
 }
