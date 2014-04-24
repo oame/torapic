@@ -18,6 +18,8 @@
 
 class Photo < ActiveRecord::Base
   include Colourable
+  include Tokenable
+
   acts_as_paranoid
 
   belongs_to :user

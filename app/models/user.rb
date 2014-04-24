@@ -22,14 +22,18 @@
 #
 
 class User < ActiveRecord::Base
+  include TokenAuthenticatable
+
   acts_as_paranoid
 
   # /users/:name
   def to_param; name ; end
 
+  before_save :ensure_authentication_token
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :omniauthable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :omniauthable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable, :confirmable
 
   has_many :authentications, dependent: :destroy
   has_many :photos

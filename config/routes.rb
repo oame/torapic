@@ -1,6 +1,6 @@
 Torapic::Application.routes.draw do
   # API
-  mount API => '/'
+  mount API::Base=> '/'
 
   # User
   devise_for :users, :controllers => {

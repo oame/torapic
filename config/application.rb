@@ -21,6 +21,8 @@ module Torapic
     config.i18n.default_locale = :ja
 
     # config.assets.precompile += ['active_admin.css', 'active_admin.js']
-    config.autoload_paths += %W(#{config.root}/lib)
+
+    # Load lib
+    config.autoload_paths << "#{config.root}/lib"
   end
 end
