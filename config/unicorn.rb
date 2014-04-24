@@ -12,7 +12,6 @@ stdout_path "#{shared_path}/log/unicorn.log"
 worker_processes 2
 timeout 180
 
-# no downtime
 preload_app true
 
 before_fork do |server, worker|

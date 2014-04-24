@@ -74,7 +74,6 @@ gem 'nprogress-rails'
 
 # Background process
 gem 'foreman'
-gem 'foreman-monit', github: 'capita/foreman-monit'
 gem 'sidekiq'
 
 # Analytics

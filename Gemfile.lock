@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/capita/foreman-monit.git
-  revision: 47c40d9345a7d170aa2e914a0d2a5fcf7236811d
-  specs:
-    foreman-monit (1.0.3)
-      foreman
-      thor
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -454,7 +446,6 @@ DEPENDENCIES
   fog
   font-awesome-rails
   foreman
-  foreman-monit!
   grape
   grape-rabl
   grape-swagger
