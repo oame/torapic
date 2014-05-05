@@ -34,14 +34,14 @@
         return if texts.length > 0 then texts.join(' ') else "0"
 
       $ ->
-        $('.range-slider-ui').noUiSlider {
+        $('.range-slider-ui').noUiSlider({
           start: 60,
           step: 5,
           range: {
-            'min': 0,
-            'max': 360
+            min: 0,
+            max: 360
           }
-        }
+        })
 
         $('.range-slider-ui').on 'slide', ->
           at = parseInt($(this).val())*60
@@ -65,7 +65,7 @@
         $('.datepicker, .timepicker').on 'change', ->
           $('#photo_expired_at').val("#{$('.datepicker').val()} #{$('.timepicker').val()}")
 
-        #$('.timepicker').val($('#photo_expired_at').val().split(' ')[0])
+        # $('.timepicker').val($('#photo_expired_at').val().split(' ')[0])
 
         picker_type = 'slider'
         $('#js-toggle-picker').on 'click', (e)->

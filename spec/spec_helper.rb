@@ -43,7 +43,7 @@ RSpec.configure do |config|
   config.order = "random"
 
   # Devise Helpers
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::TestHelpers, type: :controller
 
   # Factory Girl
   config.include FactoryGirl::Syntax::Methods

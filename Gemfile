@@ -3,7 +3,6 @@ source 'https://rails-assets.org'
 
 ruby '2.1.1'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 
@@ -33,7 +32,7 @@ gem 'momentjs-rails'
 gem 'pickadate-rails'
 # gem 'rails-assets-dropzone'
 gem 'rails-assets-jquery-waypoints'
-gem 'rails-assets-nouislider'
+gem 'rails-assets-nouislider', '6.0.0'
 
 gem 'sprockets', '2.11.0' # Fucking shit!!!
 
