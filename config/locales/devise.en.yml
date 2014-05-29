@@ -40,6 +40,7 @@ en:
       signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
       updated: "You updated your account successfully."
+      edit: "Edit %{resource}"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
@@ -53,6 +54,9 @@ en:
         sign_up: Sign up
         sign_in_with: "Sign in with %{provider}"
         sign_out: Sign out
+        forgot_your_password: Forgot your password?
+        didnt_receive_confirmation_instructions: Didn't receive confirmation instructions?
+        cancel_my_account: Cancel my account
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"

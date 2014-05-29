@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
-ruby '2.1.1'
+ruby '2.1.2'
 
 
 gem 'rails', '4.1.1'
@@ -79,15 +79,10 @@ gem 'sidekiq'
 gem 'newrelic_rpm'
 
 group :production do
-  # gem 'pg'
-  # gem 'rails_12factor'
   gem 'mysql2'
-  gem 'unicorn'
 
-  # Assets precompile
-  # gem 'libv8', '~> 3.11.8'
-  # gem 'execjs'
-  # gem 'therubyracer'
+  gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 group :development, :test do
@@ -123,10 +118,4 @@ group :development, :test do
 
   # Detect N+1
   gem 'bullet'
-
-  # Deployment
-  gem 'capistrano', '~> 3.0', require: false
-  gem 'capistrano-rails', require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano-rbenv', require: false
 end

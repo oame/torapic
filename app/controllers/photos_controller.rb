@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
     authorize @photo
 
     @photo.destroy if @photo.expired?
-    ViewCountWorker.perform_async @photo.id
+    @photo.view!
   end
 
   def new

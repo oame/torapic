@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      active_admin/comment: active_admin/comment  #g
+      active_admin/comment: active_admin/comment
       admin_user: 管理者
       photo: フォト
       user: ユーザー
@@ -33,8 +33,8 @@ ja:
         image: イメージ
 
       user:
-        current_sign_in_at: current_sign_in_at  #g
-        current_sign_in_ip: current_sign_in_ip  #g
+        current_sign_in_at: current_sign_in_at #g
+        current_sign_in_ip: current_sign_in_ip #g
         deleted_at: 削除日
         email: メールアドレス
         encrypted_password: パスワード

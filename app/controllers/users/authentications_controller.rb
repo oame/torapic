@@ -4,7 +4,7 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
     authentication = Authentication.where(provider: omniauth_data['provider'], uid: omniauth_data['uid']).first
 
     if authentication
-      flash[:notice] = "Logged in Successfully"
+      flash[:notice] = t('devise.sessions.signed_in')
       sign_in_and_redirect User.find(authentication.user_id)
     elsif current_user
       token = omniauth_data['credentials'].token
@@ -15,14 +15,14 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
                                            uid: omniauth_data['uid'],
                                            token: token,
                                            token_secret: token_secret)
-      flash[:notice] = "Authentication successful."
+      flash[:notice] = t('devise.omniauth_callbacks.success')
       sign_in_and_redirect current_user
     else
       user = User.new
       user.apply_omniauth(omniauth_data)
 
       if user.save
-        flash[:notice] = "Logged in."
+        flash[:notice] = t('devise.sessions.signed_in')
         sign_in_and_redirect User.find(user.id)
       else
         session['devise.omniauth'] = omniauth_data.except('extra')

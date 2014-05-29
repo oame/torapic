@@ -6,8 +6,8 @@ ja:
       send_paranoid_instructions: "ご登録のメールアドレスが保存されている場合、アカウントの確認方法をメールでご連絡します。"
     failure:
       already_authenticated: "既にログインしています。"
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid email or password."
+      inactive: "アカウントが有効化されていません。"
+      invalid: "メールアドレスまたはパスワードが間違っています。"
       locked: "アカウントがロックされています。"
       last_attempt: "あなたのアカウントがロックされる前に、もう1つの試みを持っています。"
       not_found_in_database: "メールアドレスまたはパスワードが無効です。"
@@ -38,6 +38,7 @@ ja:
       signed_up_but_unconfirmed: "確認メールを登録したメールアドレス宛に送信しました。リンクを開いてアカウントを有効にして下さい。"
       update_needs_confirmation: "アカウント情報が更新されました。更新の確認メールを新しいメールアドレス宛に送信しましたので、リンクを開いて更新を有効にして下さい。"
       updated: "アカウントが更新されました。"
+      edit: "%{resource}を編集"
     sessions:
       signed_in: "ログインしました。"
       signed_out: "ログアウトしました。"
@@ -51,6 +52,9 @@ ja:
         sign_in: サインイン
         sign_in_with: "%{provider} でサインイン"
         sign_out: サインアウト
+        forgot_your_password: パスワードを忘れました？
+        didnt_receive_confirmation_instructions: 確認メールが届かない
+        cancel_my_account: アカウントを削除する
   errors:
     messages:
       already_confirmed: "は既に登録済みです。ログインしてください"
