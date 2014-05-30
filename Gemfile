@@ -72,7 +72,6 @@ gem 'nprogress-rails'
 # gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Background process
-gem 'foreman'
 gem 'sidekiq'
 
 # Analytics
@@ -94,6 +93,7 @@ group :development, :test do
   gem 'yard'
   gem 'spring'
   gem 'meta_request'
+  gem 'foreman'
 
   # Test
   gem 'rspec-rails'

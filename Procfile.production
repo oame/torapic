@@ -1,2 +1,0 @@
-web: bundle exec unicorn_rails -c config/unicorn.rb -E production -p $PORT
-worker: bundle exec sidekiq -c 5 -e production -C config/sidekiq.yml
