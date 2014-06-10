@@ -27,8 +27,9 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
-    authorize @photo
     @photo.user_id = current_user.id
+
+    authorize @photo
 
     if @photo.save
       redirect_to @photo
@@ -43,6 +44,7 @@ class PhotosController < ApplicationController
 
   def update
     authorize @photo
+
     if @photo.update_attributes!(photo_params)
       redirect_to @photo
     else
@@ -52,6 +54,7 @@ class PhotosController < ApplicationController
 
   def destroy
     authorize @photo
+
     if @photo.destroy
       redirect_to photos_path
     else
