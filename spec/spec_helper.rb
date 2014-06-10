@@ -48,18 +48,17 @@ RSpec.configure do |config|
   # Factory Girl
   config.include FactoryGirl::Syntax::Methods
 
-  config.before(:all) do
+  config.before :all do
     FactoryGirl.reload
   end
 
-  # Database Cleaner
-  config.before(:suite) do
-    begin
-      DatabaseCleaner.start
-      FactoryGirl.lint
-    ensure
-      DatabaseCleaner.clean
-    end
+  config.before :suite do
+    FactoryGirl.lint
+    DatabaseRewinder.clean_all
+  end
+
+  config.after :each do
+    DatabaseRewinder.clean
   end
 
   config.color = true

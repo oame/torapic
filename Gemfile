@@ -72,7 +72,7 @@ gem 'nprogress-rails'
 # gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Background process
-gem 'sidekiq'
+# gem 'sidekiq'
 
 # Analytics
 gem 'newrelic_rpm'
@@ -93,7 +93,7 @@ group :development, :test do
   gem 'yard'
   gem 'spring'
   gem 'meta_request'
-  gem 'foreman'
+  # gem 'foreman'
 
   # Test
   gem 'rspec-rails'
@@ -102,8 +102,7 @@ group :development, :test do
   gem 'faker'
   gem 'faker-japanese'
   gem 'capybara'
-  gem 'database_cleaner'
-  gem 'simplecov'
+  gem 'database_rewinder'
 
   # Auto-generate API documents
   gem 'grape-swagger'
@@ -112,6 +111,11 @@ group :development, :test do
   # Improve error analytics
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'awesome_print'
+  gem 'tapp'
 
   # Detect vulnerability
   gem 'brakeman', require: false
