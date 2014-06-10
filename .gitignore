@@ -16,9 +16,6 @@
 ## Simplecov
 /coverage
 
-## Dotenv
-/.env
-
 ## Yard
 /.yardoc
 /doc
