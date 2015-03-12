@@ -1,22 +1,26 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
-ruby '2.1.2'
+ruby '2.2.1'
 
-gem 'rails', '4.1.1'
-
-# optimize JSON
-gem 'rabl'
-gem 'oj'
-
-# API
-gem 'grape'
-gem 'grape-rabl'
-
-# Global settings
+gem 'rails', '4.2.0'
 gem 'figaro'
-
-# Assets libralies
+# gem 'newrelic_rpm'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'cancancan'
+gem 'carrierwave'
+gem 'fog'
+gem 'rmagick', require: 'RMagick'
+gem 'paranoia'
+# gem 'validates_timeliness'
+gem 'gravatar_image_tag'
+gem 'kaminari'
+gem 'rails-i18n'
+# gem 'i18n_generators'
+# gem 'turbolinks'
+# gem 'jquery-turbolinks'
+# gem 'nprogress-rails'
 gem 'uglifier'
 gem 'sass-rails'
 gem 'compass-rails'
@@ -27,98 +31,28 @@ gem 'slim-rails'
 gem 'font-awesome-rails'
 gem 'modernizr-rails'
 gem 'momentjs-rails'
-
 gem 'pickadate-rails'
-# gem 'rails-assets-dropzone'
-gem 'rails-assets-jquery-waypoints'
-gem 'rails-assets-nouislider', '6.0.0'
 
-gem 'sprockets', '2.11.0' # Fucking shit!!!
-
-# Authentication
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-twitter'
-
-# Authorization
-gem 'pundit'
-
-# Upload helpers
-gem 'carrierwave'
-gem 'fog'
-gem 'rmagick', require: 'RMagick'
-
-# Model helpers
-gem 'paranoia'
-gem 'validates_timeliness'
-
-# View helpers
-gem 'gravatar_image_tag'
-
-# Pagination
-gem 'kaminari'
-
-# I18n
-gem 'rails-i18n'
-gem 'i18n_generators'
-
-# Ajax
-gem 'turbolinks'
-gem 'jquery-turbolinks'
-gem 'nprogress-rails'
-
-# Admin
-# gem 'activeadmin', github: 'gregbell/active_admin'
-
-# Background process
-# gem 'sidekiq'
-
-# Analytics
-gem 'newrelic_rpm'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery-waypoints'
+  gem 'rails-assets-nouislider', '6.0.0'
+end
 
 group :production do
-  gem 'mysql2'
-
+  gem 'pg'
   gem 'rails_12factor'
-  gem 'unicorn'
 end
 
 group :development, :test do
   gem 'sqlite3'
-
   gem 'quiet_assets'
-  gem 'letter_opener'
-  gem 'annotate'
-  gem 'yard'
   gem 'spring'
   gem 'meta_request'
-  # gem 'foreman'
 
   # Test
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'faker-japanese'
-  gem 'capybara'
-  gem 'database_rewinder'
-
-  # Auto-generate API documents
-  gem 'grape-swagger'
-  gem 'grape-swagger-ui'
-
-  # Improve error analytics
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'pry-rails'
-  gem 'hirb'
-  gem 'hirb-unicode'
-  gem 'awesome_print'
-  gem 'tapp'
-
-  # Detect vulnerability
-  gem 'brakeman', require: false
-
-  # Detect N+1
-  gem 'bullet'
+  gem 'pry-byebug'
 end

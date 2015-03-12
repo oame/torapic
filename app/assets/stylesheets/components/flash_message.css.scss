@@ -2,7 +2,7 @@
 @import "modules/mixins";
 
 .flash-message {
-  @extend %clearfix;
+  @include clearfix;
   padding: 23px 22px;
   background: #FFF;
   position: absolute;

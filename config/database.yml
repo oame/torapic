@@ -1,32 +1,23 @@
-development:
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
   adapter: sqlite3
-  encoding: utf8
-  database: db/torapic_development.sqlite3
-  pool: 25
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/development.sqlite3
 
 test:
-  adapter: sqlite3
-  encoding: utf8
-  database: db/torapic_test.sqlite3
-  pool: 25
-
-# production:
-#   encoding: utf8
-#   adapter: postgresql
-#   username: tjvdiyxhpkabci
-#   port: 5432
-#   host: ec2-54-225-101-4.compute-1.amazonaws.com
-#   database: dc71njc6b5oivs
-#   password: b5ipDINtlUJdz_ReeOb8GnTeum
+  <<: *default
+  database: db/test.sqlite3
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  pool: 25
-  host: localhost
-  database: torapic_production
-  username: torapic
-  password: T1gkAXi5215G
-
-# create database torapic_production;
-# grant all on torapic_production.* to 'torapic'@'localhost' identified by 'T1gkAXi5215G';
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

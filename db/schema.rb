@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140414103342) do
 
-  create_table "authentications", force: true do |t|
+  create_table "authentications", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "uid"
     t.string   "provider"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140414103342) do
 
   add_index "authentications", ["user_id"], name: "index_authentications_on_user_id"
 
-  create_table "photos", force: true do |t|
+  create_table "photos", force: :cascade do |t|
     t.string   "image"
     t.string   "salt"
     t.integer  "user_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140414103342) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
