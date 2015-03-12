@@ -13,30 +13,12 @@
 ## Carrierwave
 /public/uploads
 
-## Simplecov
-/coverage
-
-## Yard
-/.yardoc
-/doc
-
 ## OS X
 .DS_Store
 .document
 
-## Windows
-Thumbs.db
-
-## TEXTMATE
-*.tmproj
-tmtags
-
-## EMACS
-*~
-\#*
-.\#*
-
 ## VIM
 *.swp
 
-/.env
+## figaro
+/config/application.yml
