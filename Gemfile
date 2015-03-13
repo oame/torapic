@@ -42,6 +42,7 @@ gem 'pundit'
 
 # Upload helpers
 gem 'carrierwave'
+gem 'fog'
 gem 'fog-aws'
 gem 'mini_magick'
 
