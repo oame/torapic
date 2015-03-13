@@ -1,7 +1,5 @@
-require 'digest/sha1'
-
 class ImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{model.salt}"
@@ -12,6 +10,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process resize_to_limit: [1920, 8000]
+    process resize_to_limit: [1200, 8000]
   end
 end

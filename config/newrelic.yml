@@ -17,31 +17,6 @@ common: &default_settings
   # New Relic service.
   license_key: '99280f488ffe760c7be2999bf341ae3b704a83aa'
 
-  # Agent Enabled (Ruby/Rails Only)
-  # Use this setting to force the agent to run or not run.
-  # Default is 'auto' which means the agent will install and run only
-  # if a valid dispatcher such as Mongrel is running.  This prevents
-  # it from running with Rake or the console.  Set to false to
-  # completely turn the agent off regardless of the other settings.
-  # Valid values are true, false and auto.
-  #
-  # agent_enabled: auto
-
-  # Application Name Set this to be the name of your application as
-  # you'd like it show up in New Relic. The service will then auto-map
-  # instances of your application into an "application" on your
-  # dashboard page. If you want to map this instance into multiple
-  # apps, like "AJAX Requests" and "All UI" then specify a semicolon
-  # separated list of up to three distinct names, or a yaml list.
-  # Defaults to the capitalized RAILS_ENV or RACK_ENV (i.e.,
-  # Production, Staging, etc)
-  #
-  # Example:
-  #
-  #   app_name:
-  #       - Ajax Service
-  #       - All Services
-  #
   app_name: Torapic
 
   # When "true", the agent collects performance data about your

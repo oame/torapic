@@ -1,15 +1,11 @@
 class Photo < ActiveRecord::Base
-  include Colourable
+  # include Colourable
   include Tokenable
 
   acts_as_paranoid
-
   belongs_to :user
-
-  validates :image, presence: true
-
   mount_uploader :image, ImageUploader
-
+  validates :image, presence: true
   before_create :set_salt
 
   def set_salt

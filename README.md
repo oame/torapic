@@ -1,7 +1,6 @@
 # torapic
 
-## Dependencies
+## Deploy to Heroku
 
-- mysql-devel
-- ImageMagick
-- ImageMagick-devel
+heroku run rake db:migrate
+heroku ps:scale web=1

@@ -2,7 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       ## Project oriented attributes
-      t.string :name
+      t.string :name, null: false
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.datetime :deleted_at # Paranoia
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :users, :email,                unique: true
