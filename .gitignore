@@ -24,8 +24,5 @@
 .DS_Store
 .document
 
-## VIM
-*.swp
-
-# figaro
-/config/application.yml
+# dotenv
+.env

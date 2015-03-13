@@ -13,7 +13,7 @@ gem 'grape'
 gem 'grape-rabl'
 
 # Global settings
-gem 'figaro'
+gem 'dotenv-rails'
 
 # Assets libralies
 gem 'uglifier'
@@ -44,7 +44,7 @@ gem 'pundit'
 
 # Upload helpers
 gem 'carrierwave'
-gem 'fog'
+gem 'fog-aws'
 gem 'mini_magick'
 
 # Model helpers
@@ -72,7 +72,7 @@ gem 'newrelic_rpm'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  gem 'therubyracer', platform: :ruby
+  gem 'therubyracer', platforms: :ruby
 end
 
 group :development, :test do

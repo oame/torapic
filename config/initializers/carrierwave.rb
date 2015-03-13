@@ -10,8 +10,6 @@ CarrierWave.configure do |config|
       region:                ENV['AWS_S3_REGION']
     }
     config.fog_directory  = ENV['AWS_S3_BUCKET']
-    config.fog_public     = true
-    config.fog_attributes = {}
 
     config.cache_dir = "#{Rails.root}/tmp/uploads/#{DateTime.now.to_f}.#{rand(999)}.#{rand(999)}"
   end
