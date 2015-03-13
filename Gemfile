@@ -31,15 +31,13 @@ gem 'pickadate-rails'
 source 'https://rails-assets.org' do
   # gem 'rails-assets-dropzone'
   gem 'rails-assets-jquery-waypoints'
-  gem 'rails-assets-nouislider'
+  gem 'rails-assets-nouislider', '6.0'
 end
 
 # Authentication
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
-
-# Authorization
 gem 'pundit'
 
 # Upload helpers
@@ -50,11 +48,7 @@ gem 'mini_magick'
 # Model helpers
 gem 'paranoia'
 gem 'validates_timeliness'
-
-# View helpers
 gem 'gravatar_image_tag'
-
-# Pagination
 gem 'kaminari'
 
 # I18n
