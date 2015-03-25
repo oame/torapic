@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 
 # optimize JSON
 gem 'rabl'
@@ -29,7 +29,6 @@ gem 'momentjs-rails'
 gem 'pickadate-rails'
 
 source 'https://rails-assets.org' do
-  # gem 'rails-assets-dropzone'
   gem 'rails-assets-jquery-waypoints'
   gem 'rails-assets-nouislider', '6.0'
 end
