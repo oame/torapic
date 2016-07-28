@@ -1,0 +1,7 @@
+- if notice || alert
+  .flash-message class="#{notice ? "notice" : ""} #{alert ? "error" : ""}"
+    .flash-text
+      - if notice
+        p = notice
+      - elsif alert
+        p = alert

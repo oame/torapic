@@ -1,0 +1,21 @@
+.wrapper
+  .layout
+    h2 Sign up
+    .group
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+
+        .input-group
+          = f.text_field :name, autofocus: true, placeholder: User.human_attribute_name(:name)
+        .input-group
+          = f.email_field :email, placeholder: User.human_attribute_name(:email)
+        .input-group
+          = f.password_field :password, placeholder: User.human_attribute_name(:password)
+        .input-group
+          = f.password_field :password_confirmation, placeholder: User.human_attribute_name(:password_confirmation)
+
+        .actions
+          = f.submit t('devise.shared.links.sign_up'), class: 'button button-green'
+
+      .group
+        = render "users/shared/links"

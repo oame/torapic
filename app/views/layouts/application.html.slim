@@ -1,0 +1,59 @@
+doctype 5
+html
+  head
+    title Torapic
+
+    meta name="viewport" content="width=device-width, minimal-ui"
+    = yield(:meta_tag)
+
+    = stylesheet_link_tag "application", media: "all"
+
+    = javascript_include_tag "//fast.fonts.net/jsapi/ae647d66-7237-4767-aaa6-a318929c5731.js"
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
+    = javascript_include_tag :modernizr
+    = javascript_include_tag :application
+
+    = csrf_meta_tags
+  body
+    nav.sidebar
+      .sidebar-header.visible
+        - if content_for?(:header)
+          = yield(:header)
+        - else
+          = link_to '', user_root_path,
+            class: 'logo icon-torapic-logo-square',
+            id: 'js-sidebar-toggle',
+            data: { color: content_for?(:header_icon_color) ? yield(:header_icon_color) : 'gray' }
+
+      .sidebar-scrollable-content
+        ul.sidebar-list
+          li.sidebar-list-item
+            = link_to user_signed_in?? :authenticated_root : :unauthenticated_root do
+              i.sidebar-list-item-icon.icon-torapic-logo
+              | Home
+          - if user_signed_in?
+            li.sidebar-list-item
+              = link_to photos_path do
+                i.sidebar-list-item-icon.fa.fa-picture-o
+                | Manage Photos
+            li.sidebar-list-item
+              = link_to edit_user_registration_path do
+                i.sidebar-list-item-icon.fa.fa-gear
+                | Settings
+            li.sidebar-list-item
+              = link_to destroy_user_session_path, method: :delete do
+                i.sidebar-list-item-icon.fa.fa-sign-out
+                | Sign out
+          - else
+            li.sidebar-list-item
+              = link_to new_user_session_path do
+                i.sidebar-list-item-icon.fa.fa-sign-in
+                | Sign in
+        = yield(:sidebar_content) if content_for?(:sidebar_content)
+    .sidebar-overlay
+    .scrollable-container
+      .scrollable-region
+        .scrollable-content
+          == yield
+
+    == render 'layouts/flash_message'

@@ -1,0 +1,79 @@
+/*
+ *= require pickadate/default
+ *= require pickadate/default.date
+ *= require pickadate/default.time
+ *= require nouislider/jquery.nouislider
+ *= require components/custom-bootstrap-datetimepicker
+*/
+
+@import "compass";
+@import "modules/mixins";
+@import "modules/views";
+
+// Form
+.photo-form {
+  width: 400px;
+  display: block;
+  margin: -24px 0 0 20px;
+  padding: 40px;
+
+  @include bp-medium {
+    width: auto;
+    margin: 0 20px 0;
+  }
+
+  @include bp-small {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .range-slider {
+    margin: 0 0 20px;
+
+    .range-slider-label {
+      margin: 0 -40px 20px;
+      padding: 15px 0 15px;
+      background: #fafafa;
+    }
+  }
+}
+
+.image-drop-zone {
+  padding: 20px 0 15px;
+}
+
+.sidebar-header {
+  @extend %clearfix;
+
+  .logo {
+    float: left;
+  }
+}
+
+.photo-info-list {
+  float: left;
+  margin: 3px 0 0 8px;
+
+  .photo-info-item {
+    margin: 5px 0 0 0;
+    white-space: nowrap;
+  }
+}
+
+.photo {
+  padding: 0 20px 20px;
+  text-align: center;
+
+  .photo-image {
+    max-width: 100%;
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+
+    &.zoomed-in {
+      max-width: none;
+      cursor: -webkit-zoom-out;
+      cursor: -moz-zoom-out;
+    }
+  }
+}

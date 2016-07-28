@@ -1,0 +1,32 @@
+- content_for(:meta_tag) do
+  meta name="twitter:card" content="photo"
+  meta name="twitter:image:src" content=@photo.image_url(:medium)
+  meta name="twitter:domain" content=photo_url(@photo)
+
+- content_for(:header) do
+  = link_to '', user_root_path,
+    class: 'logo icon-torapic-logo-square',
+    id: 'js-sidebar-toggle',
+    data: {color: :gray}
+  ul.photo-info-list
+    li.photo-info-item title='View Count'
+      i.icon.fa.fa-eye
+      = @photo.view_count
+    li.photo-info-item title='Expired At'
+      i.icon.fa.fa-clock-o
+      - if @photo.expirable?
+        = distance_of_time_in_words(Time.now, @photo.expired_at)
+      - else
+        span 無期限
+
+- content_for(:sidebar_content) do
+  ul.sidebar-list
+    li.sidebar-list-item
+      = link_to @photo.user do
+        = gravatar_image_tag @photo.user.email, class: 'sidebar-list-item-icon'
+        = @photo.user.name
+
+.wrapper
+  .photo
+    = image_tag @photo.image_url(:medium), class: "photo-image",
+      data: {original: @photo.image_url, medium: @photo.image_url(:medium)}

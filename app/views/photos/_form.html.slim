@@ -1,0 +1,91 @@
+= form_for @photo, html: { multipart: true } do |f|
+  == render 'error_explanation', { record: @photo }
+
+  .input-group.image-drop-zone
+    = f.file_field :image
+
+  = f.hidden_field :expired_at
+  .input-group
+    .range-slider
+      label.range-slider-label 1h
+      .range-slider-ui
+  .input-group
+    .datetimepicker style='display: none'
+      .input-group.date
+        input.form-control.datepicker type='text' placeholder='日付'
+      .input-group.time
+        input.form-control.timepicker type='text' placeholder='時間'
+
+    coffee:
+      secondsToTime = (secs)->
+        hours = Math.floor(secs / (60 * 60))
+
+        divisor_for_minutes = secs % (60 * 60)
+        minutes = Math.floor(divisor_for_minutes / 60)
+
+        divisor_for_seconds = divisor_for_minutes % 60
+        seconds = Math.ceil(divisor_for_seconds)
+
+        texts = []
+        if hours then texts.push "#{hours}h"
+        if minutes then texts.push "#{minutes}m"
+        if seconds then texts.push "#{seconds}s"
+
+        return if texts.length > 0 then texts.join(' ') else "0"
+
+      $ ->
+        $('.range-slider-ui').noUiSlider({
+          start: 60,
+          step: 5,
+          range: {
+            min: 0,
+            max: 360
+          }
+        })
+
+        $('.range-slider-ui').on 'slide', ->
+          at = parseInt($(this).val())*60
+          if at == 0
+            $(this).parent().find(".range-slider-label").text('Limitless')
+            $('#photo_expired_at').val ''
+          else
+            $(this).parent().find(".range-slider-label").text(secondsToTime(at))
+            $('#photo_expired_at').val moment().add('seconds', at).format()
+
+        $('.datepicker').pickadate({
+          format: 'yyyy-mm-dd',
+          min: new Date()
+        })
+
+        $('.timepicker').pickatime({
+          format: 'HH:i',
+          interval: 5
+        })
+
+        $('.datepicker, .timepicker').on 'change', ->
+          $('#photo_expired_at').val("#{$('.datepicker').val()} #{$('.timepicker').val()}")
+
+        # $('.timepicker').val($('#photo_expired_at').val().split(' ')[0])
+
+        picker_type = 'slider'
+        $('#js-toggle-picker').on 'click', (e)->
+          e.preventDefault()
+          if picker_type == 'slider'
+            $(this).find('.button-icon').removeClass('fa-calendar-o').addClass('fa-clock-o')
+            $('.range-slider').hide()
+            $('.datetimepicker').show()
+            picker_type = 'date'
+          else
+            $(this).find('.button-icon').removeClass('fa-clock-o').addClass('fa-calendar-o')
+            $('.datetimepicker').hide()
+            $('.range-slider').show()
+            picker_type = 'slider'
+
+        at = parseInt($('.range-slider-ui').val())*60
+        $('#photo_expired_at').val moment().add('seconds', at).format()
+
+  .actions
+    .button-group
+      = f.submit 'Upload', class: 'button button-green'
+      button#js-toggle-picker.button.button-darkgreen
+        i.button-icon.fa.fa-calendar-o

@@ -1,0 +1,41 @@
+.wrapper
+  .layout
+    h2 = t('devise.registrations.edit', resource: User.model_name.human)
+
+    .group
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+
+          = devise_error_messages!
+
+          .input-group
+            = f.email_field :email, :autofocus => true, placeholder: 'Email'
+
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            div
+              | Currently waiting confirmation for: #{resource.unconfirmed_email}
+
+          .input-group
+            = f.password_field :password, :autocomplete => "off", placeholder: 'Password'
+
+          .input-group
+            = f.password_field :password_confirmation, placeholder: 'Password confirmation'
+
+          .input-group
+            = f.password_field :current_password, placeholder: 'Current password'
+
+          .actions
+            = f.submit class: 'button button-green'
+
+    .group
+      h3 Social Accounts
+
+      - if current_user.authentications.pluck(:provider).include? "twitter"
+        ul
+          dt Twitterと接続済み
+          dd = link_to "接続解除", users_authentication_path(:twitter), method: :delete, data: {confirm: "Sure？"}
+
+    .group
+      h3 = t('devise.shared.links.cancel_my_account')
+
+      p
+        = button_to t('devise.shared.links.cancel_my_account'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button button-red'

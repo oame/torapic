@@ -1,0 +1,22 @@
+.wrapper
+  .layout
+    h2 Editing Photo
+    .group.columns
+      figure.column
+        = link_to @photo do
+          = image_tag @photo.image.thumb.url
+          figcaption.column-caption
+            ul.horizontal.column-caption-labels
+              li title='View Count'
+                i.icon.fa.fa-eye
+                = @photo.view_count
+              - if @photo.expired_at.present?
+                li title='Expired At'
+                  i.icon.fa.fa-clock-o
+                  = distance_of_time_in_words(Time.now, @photo.expired_at)
+      figure.column
+        .inner
+          h2 Update
+          == render 'form'
+          = link_to photo_path(@photo), method: :delete, confirm: 'Are you sure?', class: 'button button-red' do
+            i.fa.fa-trash-o

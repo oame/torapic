@@ -1,0 +1,273 @@
+/*
+ *= require nprogress
+ *= require components/flash_message
+ *= require components/torapic-icons
+ *= require components/sidebar
+ *= require components/buttons
+ *= require components/splittable
+ *= require components/range_slider
+ *= require components/custom-nouislider
+ *= require components/custom-nprogress
+
+ *= require_self
+ *= require photos
+*/
+
+/*
+font-family:'Novecento Sans W01 Bd';
+font-family:'Novecento Sans W01 Lt';
+font-family:'Avenir Next W02 Thin';
+font-family:'AvenirNextLTW01-Regular';
+font-family:'AvenirNextLTW01-Medium';
+*/
+
+@import "compass/reset";
+@import "compass";
+@import "ceaser-easing";
+@import "font-awesome";
+
+@import "modules/mixins";
+@import "modules/views";
+
+$font_color: #5d5d5d;
+$bg_color: #fff;
+$high_color: #f7ee5e;
+$thin_color: #dbdbdb;
+
+body {
+  font-size: 13px;
+  font-family: $ff-gothic-full;
+  background: $bg_color;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  @include font-colors($font_color);
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  font-family: 'Novecento Sans W01 Bd', sans-serif;
+  font-size: 33px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-family: 'Novecento Sans W01 Bd', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-family: 'Novecento Sans W01 Bd', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  margin-bottom: 15px;
+}
+
+ul {
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+ul.horizontal {
+  @extend %clearfix;
+
+  li {
+    float: left;
+    margin-left: 10px;
+  }
+
+  li:first-child {
+    margin-left: 0;
+  }
+}
+
+#error_explanation {
+  background: #ededed;
+  border: 4px dashed #bdbdbd;
+  padding: 10px;
+}
+
+.input-group {
+  margin: 5px 0 0;
+
+  input[type=text], input[type=email], input[type=password] {
+    width: 100%;
+    display: inline-block;
+    //border: none;
+    border: 1px solid #e1e1e1;
+    @include border-radius(2);
+    background: #fafafa;
+    padding: 12px;
+    font-size: 17px;
+    outline: none;
+  }
+}
+
+.actions {
+  margin: 10px 0 0;
+}
+
+.group {
+  margin-top: 50px;
+}
+
+.box {
+  display: inline-block;
+  padding: 15px;
+  background: #fff;
+  color: $font_color;
+  a {
+    @include link-colors($font_color);
+    text-decoration: underline;
+  }
+}
+
+.icon {
+  width: 15px;
+  text-align: center;
+  margin-right: 2px;
+}
+
+.columns {
+  @include column-count(3);
+
+  &.with-effects {
+    &:hover {
+      .column:not(:hover) {
+        opacity: 0.7;
+      }
+    }
+
+    .column {
+      .column-caption .column-caption-controls {
+        opacity: 0;
+        @include transition(all .2s ease);
+      }
+
+      &:hover {
+        .column-caption .column-caption-controls {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .column {
+    display: inline-block;
+    margin: 1px 2px 15px;
+    opacity: 1;
+    @include box-shadow(0 1px 2px rgba(0.0, 0.0, 0.0, 0.2));
+    @include transition(all .2s ease);
+
+    .inner {
+      padding: 15px;
+    }
+
+    a {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      vertical-align: bottom;
+      @include transform(translateZ(0));
+    }
+
+    .column-caption {
+      display: block;
+      padding: 12px 10px 15px;
+      @extend %clearfix;
+
+      .column-caption-labels {
+        float: left;
+      }
+
+      .column-caption-controls {
+        float: right;
+      }
+    }
+  }
+
+  @include bp-medium {
+    @include column-count(2);
+  }
+
+  @include bp-small {
+    @include column-count(1);
+
+    .column {
+      display: block;
+    }
+  }
+}
+
+.logo {
+  display: block;
+  font-size: 45px;
+}
+
+.logo[data-color=white] {
+  color: #fff;
+}
+
+.logo[data-color=black] {
+  color: #000;
+}
+
+.logo[data-color=gray] {
+  color: #545454;
+}
+
+.wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  padding-top: 90px;
+}
+
+.wrapper.landscape {
+  background: url(asset-path("torapic_landscape_daylight_m.jpg"));
+  background-position: bottom;
+  @include background-size(cover);
+  color: #fff;
+  text-align: center;
+}
+
+.layout {
+  width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+
+  @include bp-large {
+    width: auto;
+  }
+}
+
+.header {
+  @extend %clearfix;
+  padding: 20px;
+
+  .logo {
+    float: left;
+  }
+
+  .menu {
+    float: right;
+  }
+}
