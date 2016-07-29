@@ -60,9 +60,9 @@ gem 'jquery-turbolinks'
 gem 'nprogress-rails'
 
 gem 'pg'
+gem 'rails_12factor'
 
 group :production do
-  gem 'rails_12factor'
   gem 'therubyracer', platforms: :ruby
 end
 
@@ -79,6 +79,6 @@ group :development, :test do
 
   # Improve error analytics
   gem 'web-console'
-  gem 'pry-rails'
-  gem 'pry-byebug'
+  # gem 'pry-rails'
+  # gem 'pry-byebug'
 end
