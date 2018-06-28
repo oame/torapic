@@ -1,8 +1,7 @@
-class Photo < ActiveRecord::Base
+class Photo < ApplicationRecord
   # include Colourable
   include Tokenable
 
-  acts_as_paranoid
   belongs_to :user
   mount_uploader :image, ImageUploader
   validates :image, presence: true

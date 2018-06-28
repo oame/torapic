@@ -18,7 +18,7 @@
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :photo do
     image Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/sample.png')))
     expired_at { Time.now }

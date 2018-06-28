@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.5.1'
 
-gem 'rails', '4.2.1'
+gem 'rails', '5.2.0'
+gem 'bootsnap'
+gem 'webpacker'
 
 gem 'rabl'
 gem 'oj'
@@ -15,15 +17,15 @@ gem 'grape-rabl'
 gem 'dotenv-rails'
 
 # Assets libralies
-gem 'uglifier'
-gem 'sass-rails'
-gem 'compass-rails'
-gem 'ceaser-easing'
-gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'slim-rails'
+# gem 'uglifier'
+# gem 'sass-rails'
+# gem 'compass-rails'
+# gem 'ceaser-easing'
+# gem 'coffee-rails'
+# gem 'jquery-rails'
+# gem 'slim-rails'
 gem 'font-awesome-rails'
-gem 'modernizr-rails'
+# gem 'modernizr-rails'
 gem 'momentjs-rails'
 gem 'pickadate-rails'
 
@@ -37,6 +39,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pundit'
+gem 'discard', '~> 1.0'
 
 # Upload helpers
 gem 'carrierwave'
@@ -45,7 +48,7 @@ gem 'fog-aws'
 gem 'mini_magick'
 
 # Model helpers
-gem 'paranoia'
+# gem 'paranoia'
 gem 'validates_timeliness'
 gem 'gravatar_image_tag'
 gem 'kaminari'
@@ -67,18 +70,15 @@ group :production do
 end
 
 group :development, :test do
-  gem 'quiet_assets'
-  gem 'spring'
-  gem 'meta_request'
-  gem 'letter_opener'
+  # gem 'quiet_assets'
+  # gem 'spring'
+  # gem 'meta_request'
+  # gem 'letter_opener'
+  # gem 'web-console'
+  gem 'listen'
 
   # Test
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
-
-  # Improve error analytics
-  gem 'web-console'
-  # gem 'pry-rails'
-  # gem 'pry-byebug'
 end

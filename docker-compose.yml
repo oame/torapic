@@ -1,7 +1,5 @@
-version: '2'
+version: '3'
 services:
-  db:
-    image: postgres
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
@@ -12,3 +10,5 @@ services:
     depends_on:
       - db
     env_file: .env
+  db:
+    image: postgres

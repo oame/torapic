@@ -5,7 +5,8 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '87a6f04cb11009afc35e8be63f03d8ebb3d21bac06886336e3d134ed6648278d686a99a56672b01b22f1a0051695f15dee9f3d207192d5ec69d389c15cc79cbc'
-
+  config.secret_key = 'b6af80ff2220578c18676c116e9dcf71c6eab972bdff11caf0619d8431924419c9e906d646acfee38d76d02afc08b7f462607ea068d4a76f0cbf430ecee1fd91'
+  
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -70,7 +71,7 @@ Devise.setup do |config|
   # It will change confirmation, password recovery and other workflows
   # to behave the same regardless if the e-mail provided was right or wrong.
   # Does not affect registerable.
-  config.paranoid = true
+  # config.paranoid = true
 
   # By default Devise will store the user in session. You can skip storage for
   # particular strategies by setting this option.

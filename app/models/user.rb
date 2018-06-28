@@ -1,7 +1,6 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include TokenAuthenticatable
-
-  acts_as_paranoid
+  include Discard::Model
 
   # /users/:name
   def to_param; name ; end
