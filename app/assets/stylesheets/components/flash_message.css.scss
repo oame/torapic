@@ -1,29 +1,29 @@
-@import "compass";
-@import "modules/mixins";
+@import 'modules/mixins';
+@import 'modules/views';
 
 .flash-message {
-  @include clearfix;
+  @extend %clearfix;
   padding: 23px 22px;
-  background: #FFF;
+  background: #fff;
   position: absolute;
   width: 100%;
   z-index: 1000;
   overflow: hidden;
   cursor: pointer;
 
-  @include transition(all .3s ease-in-out);
+  transition: all 0.3s ease-in-out;
 
   &.invisible {
-    @include transform(scaleY(0));
+    transform: scaleY(0);
   }
 
   &.error {
-    background: #FF2940;
+    background: #ff2940;
     color: #fff;
   }
 
   &.notice {
-    background: #21CC6B;
+    background: #21cc6b;
     color: #fff;
   }
 

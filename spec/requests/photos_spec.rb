@@ -12,7 +12,7 @@ require 'spec_helper'
 
 describe API do
   describe 'Photos' do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
 
     describe 'POST /api/v1/photos' do
       let(:image) { fixture_file_upload('sample.png', 'image/png') }

@@ -21,13 +21,10 @@ font-family:'AvenirNextLTW01-Regular';
 font-family:'AvenirNextLTW01-Medium';
 */
 
-@import "compass/reset";
-@import "compass";
-@import "ceaser-easing";
-@import "font-awesome";
+@import 'font-awesome';
 
-@import "modules/mixins";
-@import "modules/views";
+@import 'modules/mixins';
+@import 'modules/views';
 
 $font_color: #5d5d5d;
 $bg_color: #fff;
@@ -106,12 +103,14 @@ ul.horizontal {
 .input-group {
   margin: 5px 0 0;
 
-  input[type=text], input[type=email], input[type=password] {
+  input[type='text'],
+  input[type='email'],
+  input[type='password'] {
     width: 100%;
     display: inline-block;
     //border: none;
     border: 1px solid #e1e1e1;
-    @include border-radius(2);
+    border-radius: 2px;
     background: #fafafa;
     padding: 12px;
     font-size: 17px;
@@ -133,7 +132,7 @@ ul.horizontal {
   background: #fff;
   color: $font_color;
   a {
-    @include link-colors($font_color);
+    color: $font_color;
     text-decoration: underline;
   }
 }
@@ -145,7 +144,7 @@ ul.horizontal {
 }
 
 .columns {
-  @include column-count(3);
+  // TODO: @include column-count(3);
 
   &.with-effects {
     &:hover {
@@ -157,7 +156,7 @@ ul.horizontal {
     .column {
       .column-caption .column-caption-controls {
         opacity: 0;
-        @include transition(all .2s ease);
+        transition: all 0.2s ease;
       }
 
       &:hover {
@@ -172,8 +171,8 @@ ul.horizontal {
     display: inline-block;
     margin: 1px 2px 15px;
     opacity: 1;
-    @include box-shadow(0 1px 2px rgba(0.0, 0.0, 0.0, 0.2));
-    @include transition(all .2s ease);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
 
     .inner {
       padding: 15px;
@@ -187,7 +186,7 @@ ul.horizontal {
       width: 100%;
       height: auto;
       vertical-align: bottom;
-      @include transform(translateZ(0));
+      transform: translateZ(0);
     }
 
     .column-caption {
@@ -206,11 +205,11 @@ ul.horizontal {
   }
 
   @include bp-medium {
-    @include column-count(2);
+    // TODO: @include column-count(2);
   }
 
   @include bp-small {
-    @include column-count(1);
+    // TODO: @include column-count(1);
 
     .column {
       display: block;
@@ -223,15 +222,15 @@ ul.horizontal {
   font-size: 45px;
 }
 
-.logo[data-color=white] {
+.logo[data-color='white'] {
   color: #fff;
 }
 
-.logo[data-color=black] {
+.logo[data-color='black'] {
   color: #000;
 }
 
-.logo[data-color=gray] {
+.logo[data-color='gray'] {
   color: #545454;
 }
 
@@ -242,9 +241,9 @@ ul.horizontal {
 }
 
 .wrapper.landscape {
-  background: url(asset-path("torapic_landscape_daylight_m.jpg"));
+  background: url(asset-path('torapic_landscape_daylight_m.jpg'));
   background-position: bottom;
-  @include background-size(cover);
+  background-size: cover;
   color: #fff;
   text-align: center;
 }

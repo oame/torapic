@@ -1,6 +1,4 @@
-@import "compass";
-@import "ceaser-easing";
-@import "modules/mixins";
+@import 'modules/mixins';
 
 body {
   background: #202020;
@@ -21,11 +19,12 @@ body {
   left: 20px;
   z-index: 1000;
 
-  &:hover, &.visible {
+  &:hover,
+  &.visible {
     opacity: 1;
   }
 
-  @include transition(all 0.5s ceaser($easeOutQuad));
+  transition: all 0.5s ease-out;
   opacity: 0;
 }
 
@@ -88,7 +87,7 @@ body {
   background: #fff;
 
   // Transition
-  @include transition(all 0.3s ceaser($easeOutQuart));
+  transition: all 0.3s ease-out;
 }
 
 .scrollable-region {
@@ -112,7 +111,7 @@ body.sidebar-open {
   }
 
   .scrollable-container {
-    @include transform(translate3d(280px, 0, 0));
+    transform: translate3d(280px, 0, 0);
     left: 0;
     z-index: 800;
   }

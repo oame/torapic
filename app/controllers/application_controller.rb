@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from Pundit::NotAuthorizedError, with: :permission_denied
 
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     rescue_from Exception, with: lambda { |exception| render_error 500, exception }
   end
 
-  rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound, with: lambda { |exception| render_error 404, exception }
+  # rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound, with: lambda { |exception| render_error 404, exception }
 
   protected
 

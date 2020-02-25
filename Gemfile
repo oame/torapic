@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.7.0'
 
-gem 'rails', '4.2.1'
+gem 'rails', '6.0.2.1'
 
-# optimize JSON
+# JSON
 gem 'rabl'
 gem 'oj'
 
@@ -12,12 +12,13 @@ gem 'oj'
 gem 'grape'
 gem 'grape-rabl'
 
-# Global settings
+# Env variables
 gem 'dotenv-rails'
 
-# Assets libralies
+# Asset preprocessors
 gem 'uglifier'
 gem 'sass-rails'
+gem 'compass'
 gem 'compass-rails'
 gem 'ceaser-easing'
 gem 'coffee-rails'
@@ -39,7 +40,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pundit'
 
-# Upload helpers
+# File manipulation
 gem 'carrierwave'
 gem 'fog'
 gem 'fog-aws'
@@ -71,14 +72,14 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'quiet_assets'
   gem 'spring'
   gem 'meta_request'
   gem 'letter_opener'
+  gem 'listen'
 
   # Test
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails', "~> 4.0"
   gem 'faker'
 
   # Improve error analytics
